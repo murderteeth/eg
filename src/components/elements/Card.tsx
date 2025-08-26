@@ -1,5 +1,6 @@
 import { cn } from '../../lib/cn'
-import { forwardRef, HTMLAttributes, ReactNode } from 'react'
+import { forwardRef } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 export type CardProps = HTMLAttributes<HTMLDivElement> & {
   className?: string

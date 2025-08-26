@@ -1,2 +1,2 @@
 # eg
-design system
+tiny design system
