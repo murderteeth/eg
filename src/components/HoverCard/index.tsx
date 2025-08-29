@@ -19,13 +19,13 @@ interface HoverCardProps {
 const triggerClassName = cn(`
   relative h-8 px-8 py-5
   flex items-center gap-2
-  bg-secondary-800 text-secondary-300 text-2xl
+  bg-[var(--button-secondary-bg)] text-[var(--button-secondary-text)] text-2xl
   rounded-primary cursor-pointer
-  drop-shadow-4 drop-shadow-secondary-600/60
+  drop-shadow-4 drop-shadow-black
+  border border-[var(--button-secondary-border)]
 
-  group-hover:bg-secondary-700
-  group-hover:text-primary-50
-  active:bg-secondary-600
+  group-hover:bg-[var(--button-secondary-bg-hover)]
+  active:bg-[var(--button-secondary-bg-active)]
   `)
 
 export function HoverCardTrigger({ className, children, onClick }: { className?: string, children: ReactNode, onClick?: () => void }) {
@@ -52,7 +52,7 @@ export function HoverCard({ hoverCardId, trigger, className, cardClassName, wrap
     onMouseLeave={handleHoverEnd}>
     {trigger}
     <div className={cn('px-5 -ml-5 py-4 group-data-[open=false]:hidden group-hover:block absolute z-10000', wrapperClassName)}>
-      <Card className={cn('border border-secondary-800/8', cardClassName)}>
+      <Card className={cardClassName}>
         {children}
       </Card>
     </div>

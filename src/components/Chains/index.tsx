@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, memo } from 'react'
 import { PiFireSimpleFill } from 'react-icons/pi'
 import { cn } from '../../lib/cn'
 import { chains } from '../../lib/chains'
@@ -6,6 +6,7 @@ import { getChainIconUrl } from '../../lib/assets'
 import { HoverCard, HoverCardTrigger } from '../HoverCard'
 import FlyInFromBottom from '../motion/FlyInFromBottom'
 import { useChains } from './useChains'
+import { useMounted } from '../../hooks/useMounted'
 
 function ChainIcon({ chainId, size = 24, className }: { chainId: number; size?: number; className?: string }) {
   return (
@@ -22,7 +23,7 @@ function ChainIcon({ chainId, size = 24, className }: { chainId: number; size?: 
   )
 }
 
-function ChainItem({ chainId }: { chainId: number }) {
+const ChainItem = memo(({ chainId }: { chainId: number }) => {
   const { toggleChain, isSelected } = useChains()
   const chain = chains[chainId]
   const selected = isSelected(chainId)
@@ -32,9 +33,10 @@ function ChainItem({ chainId }: { chainId: number }) {
       onClick={() => toggleChain(chainId)}
       className={cn(
         'group/icon w-full px-4 py-3 flex items-center',
-        'hover:bg-secondary-700 transition-colors',
-        'active:bg-secondary-600',
-        'text-left text-xl cursor-pointer'
+        'hover:bg-[var(--button-secondary-bg-hover)] transition-colors',
+        'active:bg-[var(--button-secondary-bg-active)]',
+        'text-left text-xl cursor-pointer',
+        'text-[var(--foreground)]'
       )}
     >
       <div className="relative w-8 h-8 overflow-hidden rounded-lg">
@@ -46,14 +48,15 @@ function ChainItem({ chainId }: { chainId: number }) {
       </div>
       <span className="flex-1 ml-4">{chain?.name || `Chain ${chainId}`}</span>
       {selected && (
-        <div className="w-3 h-3 rounded-full bg-secondary-700" />
+        <div className="w-3 h-3 rounded-full bg-[var(--button-secondary-border)]" />
       )}
     </button>
   )
-}
+})
 
 export function Chains() {
   const { selectedChains, clearAll, selectAll } = useChains()
+  const mounted = useMounted()
   
   const chainIds = useMemo(() => Object.keys(chains).map(Number), [])
   const selectedArray = useMemo(() => chainIds.filter(id => selectedChains.has(id)), [selectedChains, chainIds])
@@ -81,14 +84,14 @@ export function Chains() {
         hoverCardId="chains-selector"
         trigger={
           <HoverCardTrigger 
-            className="w-80 border border-secondary-600 justify-start"
+            className="w-80 justify-start"
             onClick={handleToggleAll}
           >
             <span className="flex items-center w-full">
               {selectedArray.length === 0 && 'Select chains..'}
               {selectedArray.length === 1 && (
                 <>
-                  <FlyInFromBottom _key={`chain-${selectedArray[0]}`}>
+                  <FlyInFromBottom _key={`chain-${selectedArray[0]}`} parentMounted={mounted}>
                     <ChainIcon chainId={selectedArray[0]} size={40} />
                   </FlyInFromBottom>
                   <span className="ml-4">{chains[selectedArray[0]]?.name || 'Unknown'}</span>
@@ -102,7 +105,7 @@ export function Chains() {
                       className="relative"
                       style={{ marginLeft: index === 0 ? 0 : -16 }}
                     >
-                      <FlyInFromBottom _key={`chain-${chainId}`}>
+                      <FlyInFromBottom _key={`chain-${chainId}`} parentMounted={mounted}>
                         <ChainIcon chainId={chainId} size={40} />
                       </FlyInFromBottom>
                     </div>
@@ -112,7 +115,7 @@ export function Chains() {
             </span>
           </HoverCardTrigger>
         }
-        cardClassName="p-0 w-80 max-h-96 overflow-y-auto border border-secondary-600"
+        cardClassName="p-0 w-80 max-h-96 overflow-y-auto"
       >
         <div>
           {chainIds.map((chainId) => (

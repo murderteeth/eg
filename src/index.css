@@ -73,31 +73,157 @@
   --drop-shadow-8: 8px 8px 0px rgb(0 0 0 / 1);
   --text-shadow-8: 8px 8px 0px rgb(0 0 0 / 1);
 
-  --radius-primary: var(--radius-none);
+  --radius-primary: var(--radius-lg);
 }
 
 :root {
   --foreground: var(--color-secondary-700);
   --background: var(--color-secondary-50);
+  
+  --button-primary-bg: var(--color-primary-500);
+  --button-primary-bg-hover: var(--color-primary-400);
+  --button-primary-bg-active: var(--color-primary-300);
+  --button-primary-text: var(--color-primary-950);
+  --button-primary-border: var(--color-primary-600);
+  
+  --button-secondary-bg: var(--color-secondary-200);
+  --button-secondary-bg-hover: var(--color-secondary-300);
+  --button-secondary-bg-active: var(--color-secondary-400);
+  --button-secondary-text: var(--color-secondary-800);
+  --button-secondary-border: var(--color-secondary-400);
+  
+  --button-disabled-bg: var(--color-secondary-200);
+  --button-disabled-text: var(--color-secondary-400);
+  --button-disabled-border: var(--color-secondary-300);
+  
+  --card-bg: var(--color-secondary-100);
+  --card-border: var(--color-secondary-300);
+  
   scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
 
   font-family: 'Google Sans Code', sans-serif;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: var(--foreground);
-  background-color: var(--background);
-
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root.dark {
+  --foreground: var(--color-secondary-100);
+  --background: var(--color-secondary-950);
+  
+  --button-primary-bg: var(--color-primary-600);
+  --button-primary-bg-hover: var(--color-primary-500);
+  --button-primary-bg-active: var(--color-primary-400);
+  --button-primary-text: var(--color-primary-50);
+  --button-primary-border: var(--color-primary-400);
+  
+  --button-secondary-bg: var(--color-secondary-900);
+  --button-secondary-bg-hover: var(--color-secondary-800);
+  --button-secondary-bg-active: var(--color-secondary-700);
+  --button-secondary-text: var(--color-secondary-200);
+  --button-secondary-border: var(--color-secondary-700);
+  
+  --button-disabled-bg: var(--color-secondary-900);
+  --button-disabled-text: var(--color-secondary-700);
+  --button-disabled-border: var(--color-secondary-800);
+  
+  --card-bg: var(--color-secondary-900);
+  --card-border: var(--color-secondary-700);
+  
+  scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
+  color-scheme: dark;
+}
+
+:root.light {
+  --foreground: var(--color-secondary-700);
+  --background: var(--color-secondary-50);
+  
+  --button-primary-bg: var(--color-primary-500);
+  --button-primary-bg-hover: var(--color-primary-400);
+  --button-primary-bg-active: var(--color-primary-300);
+  --button-primary-text: var(--color-primary-950);
+  --button-primary-border: var(--color-primary-600);
+  
+  --button-secondary-bg: var(--color-secondary-200);
+  --button-secondary-bg-hover: var(--color-secondary-300);
+  --button-secondary-bg-active: var(--color-secondary-400);
+  --button-secondary-text: var(--color-secondary-800);
+  --button-secondary-border: var(--color-secondary-400);
+  
+  --button-disabled-bg: var(--color-secondary-200);
+  --button-disabled-text: var(--color-secondary-400);
+  --button-disabled-border: var(--color-secondary-300);
+  
+  --card-bg: var(--color-secondary-100);
+  --card-border: var(--color-secondary-300);
+  
+  scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
+  color-scheme: light;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light):not(.dark) {
     --foreground: var(--color-secondary-100);
     --background: var(--color-secondary-950);
+    
+    --button-primary-bg: var(--color-primary-600);
+    --button-primary-bg-hover: var(--color-primary-500);
+    --button-primary-bg-active: var(--color-primary-400);
+    --button-primary-text: var(--color-primary-50);
+    --button-primary-border: var(--color-primary-400);
+    
+    --button-secondary-bg: var(--color-secondary-900);
+    --button-secondary-bg-hover: var(--color-secondary-800);
+    --button-secondary-bg-active: var(--color-secondary-700);
+    --button-secondary-text: var(--color-secondary-200);
+    --button-secondary-border: var(--color-secondary-700);
+    
+    --button-disabled-bg: var(--color-secondary-900);
+    --button-disabled-text: var(--color-secondary-700);
+    --button-disabled-border: var(--color-secondary-800);
+    
+    --card-bg: var(--color-secondary-900);
+    --card-border: var(--color-secondary-700);
+    
     scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not(.light):not(.dark) {
+    --foreground: var(--color-secondary-700);
+    --background: var(--color-secondary-50);
+    
+    --button-primary-bg: var(--color-primary-500);
+    --button-primary-bg-hover: var(--color-primary-400);
+    --button-primary-bg-active: var(--color-primary-300);
+    --button-primary-text: var(--color-primary-950);
+    --button-primary-border: var(--color-primary-600);
+    
+    --button-secondary-bg: var(--color-secondary-200);
+    --button-secondary-bg-hover: var(--color-secondary-300);
+    --button-secondary-bg-active: var(--color-secondary-400);
+    --button-secondary-text: var(--color-secondary-800);
+    --button-secondary-border: var(--color-secondary-400);
+    
+    --button-disabled-bg: var(--color-secondary-200);
+    --button-disabled-text: var(--color-secondary-400);
+    --button-disabled-border: var(--color-secondary-300);
+    
+    --card-bg: var(--color-secondary-100);
+    --card-border: var(--color-secondary-300);
+    
+    scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
+    color-scheme: light;
   }
 }

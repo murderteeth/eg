@@ -10,34 +10,46 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   h?: Hierarchy
 }
 
-export function buttonClassName(props: ButtonProps) {
+function buttonClassName(props: ButtonProps) {
   const { className, theme, h } = props
   const busy = theme === 'busy'
-  const bg = theme === 'error' ? 'bg-red-500' : h === 'secondary' ? 'bg-secondary-800' : 'bg-primary-500'
-  const text = theme === 'error' ? 'text-red-50' : h === 'secondary' ? 'text-secondary-300' : 'text-primary-950'
+  const isPrimary = h !== 'secondary'
+  
   return cn(`
     relative h-8 px-8 py-5 flex items-center justify-center
-    ${bg} text-2xl ${text} tracking-wide
+    text-2xl tracking-wide
     drop-shadow-4 drop-shadow-black
+    
+    ${isPrimary ? `
+      bg-[var(--button-primary-bg)]
+      text-[var(--button-primary-text)]
+      border-[var(--button-primary-border)]
+      hover:bg-[var(--button-primary-bg-hover)]
+      active:bg-[var(--button-primary-bg-active)]
+    ` : `
+      bg-[var(--button-secondary-bg)]
+      text-[var(--button-secondary-text)]
+      border-[var(--button-secondary-border)]
+      hover:bg-[var(--button-secondary-bg-hover)]
+      active:bg-[var(--button-secondary-bg-active)]
+    `}
+    
+    ${theme === 'error' ? `
+      bg-red-500 text-red-50 border-red-500
+      hover:bg-red-400 active:bg-red-300
+    ` : ''}
 
-    hover:bg-primary-400 data-[h=secondary]:hover:bg-secondary-700
+    border
 
-    active:bg-primary-200 data-[h=secondary]:active:bg-secondary-600
-
-    border data-[h=secondary]:border-secondary-600 border-primary-300
-
-    disabled:bg-secondary-800
-    disabled:text-secondary-600
-    disabled:hover:text-secondary-600
-    disabled:border-secondary-600
+    disabled:bg-[var(--button-disabled-bg)]
+    disabled:text-[var(--button-disabled-text)]
+    disabled:hover:text-[var(--button-disabled-text)]
+    disabled:border-[var(--button-disabled-border)]
     disabled:cursor-default
     disabled:drop-shadow-none
     disabled:pointer-events-none
 
     data-[theme=error]:drop-shadow-none
-    data-[theme=error]:border-red-500
-
-    transform -skew-x-20
 
     cursor-pointer rounded-primary whitespace-nowrap
     ${(busy || theme === 'error') && 'pointer-events-none'}
@@ -49,9 +61,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ className, theme, h
   const busy = useMemo(() => theme === 'busy', [theme])
   return (
     <button data-theme={theme} data-h={h} ref={ref} {...props} className={buttonClassName({ className, theme, h })}>
-      <span className="transform skew-x-20">
-        {!busy && children}
-      </span>
+      {!busy && children}
     </button>
   )
 })

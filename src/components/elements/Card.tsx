@@ -10,7 +10,7 @@ export type CardProps = HTMLAttributes<HTMLDivElement> & {
 export function cardClassName(props: CardProps) {
   const { className } = props
   return cn(`relative rounded-primary p-6 flex flex-col gap-3 drop-shadow-6 drop-shadow-black
-    bg-secondary-800 text-primary-50 outline-0 outline-secondary-400/40 ${className}`)
+    bg-[var(--card-bg)] text-[var(--foreground)] border border-[var(--card-border)] outline-0 ${className}`)
 }
 
 export function CardHeader({ className, children }: { className?: string, children: ReactNode }) {
