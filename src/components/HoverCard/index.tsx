@@ -47,14 +47,16 @@ export function HoverCard({ hoverCardId, trigger, className, cardClassName, wrap
     closeHoverCard()
   }, [onHoverEnd, closeHoverCard])
 
-  return <div data-open={isOpen} className={cn('relative group pointer-events-auto', className)} 
-    onMouseEnter={handleHoverStart}
-    onMouseLeave={handleHoverEnd}>
-    {trigger}
-    <div className={cn('px-5 -ml-5 py-4 group-data-[open=false]:hidden group-hover:block absolute z-10000', wrapperClassName)}>
-      <Card className={cardClassName}>
-        {children}
-      </Card>
+  return <div className="flex">
+    <div data-open={isOpen} className={cn('relative group pointer-events-auto', className)} 
+      onMouseEnter={handleHoverStart}
+      onMouseLeave={handleHoverEnd}>
+      {trigger}
+      <div className={cn('px-5 -ml-5 py-4 group-data-[open=false]:hidden group-hover:block absolute z-10000', wrapperClassName)}>
+        <Card className={cardClassName}>
+          {children}
+        </Card>
+      </div>
     </div>
   </div>
 }

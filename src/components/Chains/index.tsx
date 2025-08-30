@@ -56,7 +56,7 @@ export function Chains() {
   }
   
   return (
-    <div className="relative select-none">
+    <div className="flex relative select-none">
       {allSelected && (
         <FlyInFromBottom _key="all-chains-indicator" className="absolute -top-6 left-0 ml-2">
           <div className="flex items-center gap-1 text-sm italic">

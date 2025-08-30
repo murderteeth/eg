@@ -7,7 +7,7 @@ export type CardProps = HTMLAttributes<HTMLDivElement> & {
   header?: ReactNode
 }
 
-export function cardClassName(props: CardProps) {
+function cardClassName(props: CardProps) {
   const { className } = props
   return cn(`relative rounded-primary p-6 flex flex-col gap-3 drop-shadow-6 drop-shadow-black
     bg-[var(--card-bg)] text-[var(--foreground)] border border-[var(--card-border)] outline-0 ${className}`)
