@@ -18,8 +18,8 @@ const ChainItem = memo(({ chainId }: { chainId: number }) => {
       onClick={() => toggleChain(chainId)}
       className={cn(
         'group/icon w-full px-4 py-3 flex items-center',
-        'hover:bg-[var(--button-secondary-bg-hover)] transition-colors',
-        'active:bg-[var(--button-secondary-bg-active)]',
+        'hover:bg-interactive-secondary-hover transition-colors',
+        'active:bg-interactive-secondary-active',
         'text-left text-xl cursor-pointer',
         'text-[var(--foreground)]'
       )}
@@ -33,7 +33,7 @@ const ChainItem = memo(({ chainId }: { chainId: number }) => {
       </div>
       <span className="flex-1 ml-4">{chain?.name || `Chain ${chainId}`}</span>
       {selected && (
-        <div className="w-3 h-3 rounded-full bg-[var(--button-secondary-border)]" />
+        <div className="w-3 h-3 rounded-full bg-interactive-secondary-active" />
       )}
     </button>
   )

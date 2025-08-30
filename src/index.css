@@ -69,203 +69,202 @@
   --color-accent-900: var(--color-pink-900);
   --color-accent-950: var(--color-pink-950);
 
-  --drop-shadow-2: 2px 2px 0px rgb(0 0 0 / 0.15);
-  --text-shadow-2: 2px 2px 0px rgb(0 0 0 / 0.15);
-  --shadow-inner-2: inset 2px 2px 0px rgb(0 0 0 / 0.15);
+  --color-interactive-primary: var(--color-primary-500);
+  --color-interactive-primary-hover: var(--color-primary-400);
+  --color-interactive-primary-active: var(--color-primary-300);
+  --color-interactive-primary-text: var(--color-primary-950);
+  --color-interactive-primary-border: var(--color-primary-600);
+  
+  --color-interactive-secondary: var(--color-secondary-200);
+  --color-interactive-secondary-hover: var(--color-secondary-300);
+  --color-interactive-secondary-active: var(--color-secondary-400);
+  --color-interactive-secondary-text: var(--color-secondary-800);
+  --color-interactive-secondary-border: var(--color-secondary-400);
+  
+  --color-interactive-accent: var(--color-accent-500);
+  --color-interactive-accent-hover: var(--color-accent-400);
+  --color-interactive-accent-active: var(--color-accent-300);
+  --color-interactive-accent-text: var(--color-accent-50);
+  --color-interactive-accent-border: var(--color-accent-600);
+  
+  --color-interactive-disabled: var(--color-secondary-200);
+  --color-interactive-disabled-text: var(--color-secondary-400);
+  --color-interactive-disabled-border: var(--color-secondary-300);
+  
+  --color-surface-base: var(--color-secondary-50);
+  --color-surface-elevated: var(--color-secondary-100);
+  --color-surface-overlay: var(--color-secondary-200);
+  --color-surface-border: var(--color-secondary-300);
+  
+  --color-content-primary: var(--color-secondary-700);
+  --color-content-secondary: var(--color-secondary-500);
+  --color-content-inverse: var(--color-secondary-50);
 
-  --drop-shadow-3: 3px 3px 0px rgb(0 0 0 / 0.15);
-  --text-shadow-3: 3px 3px 0px rgb(0 0 0 / 0.15);
+  --drop-shadow-2: 2px 2px 4px rgb(0 0 0 / 0.15);
+  --text-shadow-2: 2px 2px 4px rgb(0 0 0 / 0.15);
+  --shadow-inner-2: inset 2px 2px 4px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-4: 4px 4px 0px rgb(0 0 0 / 0.15);
-  --text-shadow-4: 4px 4px 0px rgb(0 0 0 / 0.15);
+  --drop-shadow-3: 3px 3px 6px rgb(0 0 0 / 0.15);
+  --text-shadow-3: 3px 3px 6px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-6: 6px 6px 0px rgb(0 0 0 / 0.15);
-  --text-shadow-6: 6px 6px 0px rgb(0 0 0 / 0.15);
+  --drop-shadow-4: 4px 4px 8px rgb(0 0 0 / 0.15);
+  --text-shadow-4: 4px 4px 8px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-8: 8px 8px 0px rgb(0 0 0 / 0.15);
-  --text-shadow-8: 8px 8px 0px rgb(0 0 0 / 0.15);
+  --drop-shadow-6: 6px 6px 12px rgb(0 0 0 / 0.15);
+  --text-shadow-6: 6px 6px 12px rgb(0 0 0 / 0.15);
+
+  --drop-shadow-8: 8px 8px 16px rgb(0 0 0 / 0.15);
+  --text-shadow-8: 8px 8px 16px rgb(0 0 0 / 0.15);
 
   --radius-primary: var(--radius-lg);
 }
 
 :root {
-  --foreground: var(--color-secondary-700);
-  --background: var(--color-secondary-50);
-  
-  --button-accent-bg: var(--color-accent-500);
-  --button-accent-bg-hover: var(--color-accent-400);
-  --button-accent-bg-active: var(--color-accent-300);
-  --button-accent-text: var(--color-accent-50);
-  --button-accent-border: var(--color-accent-600);
-  
-  --button-primary-bg: var(--color-primary-500);
-  --button-primary-bg-hover: var(--color-primary-400);
-  --button-primary-bg-active: var(--color-primary-300);
-  --button-primary-text: var(--color-primary-950);
-  --button-primary-border: var(--color-primary-600);
-  
-  --button-secondary-bg: var(--color-secondary-200);
-  --button-secondary-bg-hover: var(--color-secondary-300);
-  --button-secondary-bg-active: var(--color-secondary-400);
-  --button-secondary-text: var(--color-secondary-800);
-  --button-secondary-border: var(--color-secondary-400);
-  
-  --button-disabled-bg: var(--color-secondary-200);
-  --button-disabled-text: var(--color-secondary-400);
-  --button-disabled-border: var(--color-secondary-300);
-  
-  --card-bg: var(--color-secondary-100);
-  --card-border: var(--color-secondary-300);
-  
-  scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
-
   font-family: 'Google Sans Code', sans-serif;
   font-weight: 400;
-
-  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root.dark {
-  --foreground: var(--color-secondary-100);
-  --background: var(--color-secondary-900);
+@layer base {
 
-  --button-accent-bg: var(--color-accent-500);
-  --button-accent-bg-hover: var(--color-accent-400);
-  --button-accent-bg-active: var(--color-accent-300);
-  --button-accent-text: var(--color-accent-50);
-  --button-accent-border: var(--color-accent-600);
-  
-  --button-primary-bg: var(--color-primary-600);
-  --button-primary-bg-hover: var(--color-primary-500);
-  --button-primary-bg-active: var(--color-primary-400);
-  --button-primary-text: var(--color-primary-50);
-  --button-primary-border: var(--color-primary-400);
-  
-  --button-secondary-bg: var(--color-secondary-900);
-  --button-secondary-bg-hover: var(--color-secondary-800);
-  --button-secondary-bg-active: var(--color-secondary-700);
-  --button-secondary-text: var(--color-secondary-200);
-  --button-secondary-border: var(--color-secondary-700);
-  
-  --button-disabled-bg: var(--color-secondary-900);
-  --button-disabled-text: var(--color-secondary-700);
-  --button-disabled-border: var(--color-secondary-800);
-  
-  --card-bg: var(--color-secondary-900);
-  --card-border: var(--color-secondary-700);
-  
-  scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
-  color-scheme: dark;
-}
+  :root,
+  :root.light {
+    --foreground: var(--color-content-primary);
+    --background: var(--color-surface-base);
+    --card-bg: var(--color-surface-elevated);
+    --card-border: var(--color-surface-border);
+    
+    --color-interactive-primary: var(--color-primary-500);
+    --color-interactive-primary-hover: var(--color-primary-400);
+    --color-interactive-primary-active: var(--color-primary-300);
+    --color-interactive-primary-text: var(--color-primary-50);
+    --color-interactive-primary-border: var(--color-primary-600);
+    
+    --color-interactive-secondary: var(--color-secondary-200);
+    --color-interactive-secondary-hover: var(--color-secondary-300);
+    --color-interactive-secondary-active: var(--color-secondary-200);
+    --color-interactive-secondary-text: var(--color-secondary-600);
+    --color-interactive-secondary-border: var(--color-secondary-300);
+    
+    --color-interactive-accent: var(--color-accent-500);
+    --color-interactive-accent-hover: var(--color-accent-400);
+    --color-interactive-accent-active: var(--color-accent-300);
+    --color-interactive-accent-text: var(--color-accent-50);
+    --color-interactive-accent-border: var(--color-accent-600);
+    
+    --color-interactive-disabled: var(--color-secondary-200);
+    --color-interactive-disabled-text: var(--color-secondary-400);
+    --color-interactive-disabled-border: var(--color-secondary-300);
+    
+    scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
+    color-scheme: light;
+  }
 
-:root.light {
-  --foreground: var(--color-secondary-700);
-  --background: var(--color-secondary-50);
+  :root.dark {
+    --foreground: var(--color-content-inverse);
+    --background: var(--color-secondary-900);
+    --card-bg: var(--color-secondary-900);
+    --card-border: var(--color-secondary-700);
+    
+    --color-interactive-primary: var(--color-primary-600);
+    --color-interactive-primary-hover: var(--color-primary-500);
+    --color-interactive-primary-active: var(--color-primary-400);
+    --color-interactive-primary-text: var(--color-primary-50);
+    --color-interactive-primary-border: var(--color-primary-500);
+    
+    --color-interactive-secondary: var(--color-secondary-900);
+    --color-interactive-secondary-hover: var(--color-secondary-800);
+    --color-interactive-secondary-active: var(--color-secondary-700);
+    --color-interactive-secondary-text: var(--color-secondary-200);
+    --color-interactive-secondary-border: var(--color-secondary-700);
+    
+    --color-interactive-accent: var(--color-accent-500);
+    --color-interactive-accent-hover: var(--color-accent-400);
+    --color-interactive-accent-active: var(--color-accent-300);
+    --color-interactive-accent-text: var(--color-accent-50);
+    --color-interactive-accent-border: var(--color-accent-600);
+    
+    --color-interactive-disabled: var(--color-secondary-900);
+    --color-interactive-disabled-text: var(--color-secondary-700);
+    --color-interactive-disabled-border: var(--color-secondary-800);
+    
+    scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
+    color-scheme: dark;
+  }
 
-  --button-accent-bg: var(--color-accent-500);
-  --button-accent-bg-hover: var(--color-accent-400);
-  --button-accent-bg-active: var(--color-accent-300);
-  --button-accent-text: var(--color-accent-50);
-  --button-accent-border: var(--color-accent-600);
-  
-  --button-primary-bg: var(--color-primary-500);
-  --button-primary-bg-hover: var(--color-primary-400);
-  --button-primary-bg-active: var(--color-primary-300);
-  --button-primary-text: var(--color-primary-50);
-  --button-primary-border: var(--color-primary-600);
-  
-  --button-secondary-bg: var(--color-secondary-50);
-  --button-secondary-bg-hover: var(--color-secondary-300);
-  --button-secondary-bg-active: var(--color-secondary-400);
-  --button-secondary-text: var(--color-secondary-800);
-  --button-secondary-border: var(--color-secondary-400);
-  
-  --button-disabled-bg: var(--color-secondary-200);
-  --button-disabled-text: var(--color-secondary-400);
-  --button-disabled-border: var(--color-secondary-300);
-  
-  --card-bg: var(--color-secondary-100);
-  --card-border: var(--color-secondary-300);
-  
-  scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
-  color-scheme: light;
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light):not(.dark) {
+      --foreground: var(--color-content-inverse);
+      --background: var(--color-secondary-900);
+      --card-bg: var(--color-secondary-900);
+      --card-border: var(--color-secondary-700);
+      
+      --color-interactive-primary: var(--color-primary-600);
+      --color-interactive-primary-hover: var(--color-primary-500);
+      --color-interactive-primary-active: var(--color-primary-400);
+      --color-interactive-primary-text: var(--color-primary-50);
+      --color-interactive-primary-border: var(--color-primary-400);
+      
+      --color-interactive-secondary: var(--color-secondary-900);
+      --color-interactive-secondary-hover: var(--color-secondary-800);
+      --color-interactive-secondary-active: var(--color-secondary-700);
+      --color-interactive-secondary-text: var(--color-secondary-200);
+      --color-interactive-secondary-border: var(--color-secondary-700);
+      
+      --color-interactive-accent: var(--color-accent-500);
+      --color-interactive-accent-hover: var(--color-accent-400);
+      --color-interactive-accent-active: var(--color-accent-300);
+      --color-interactive-accent-text: var(--color-accent-50);
+      --color-interactive-accent-border: var(--color-accent-600);
+      
+      --color-interactive-disabled: var(--color-secondary-900);
+      --color-interactive-disabled-text: var(--color-secondary-700);
+      --color-interactive-disabled-border: var(--color-secondary-800);
+      
+      scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
+      color-scheme: dark;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not(.light):not(.dark) {
+      --foreground: var(--color-content-primary);
+      --background: var(--color-surface-base);
+      --card-bg: var(--color-surface-elevated);
+      --card-border: var(--color-surface-border);
+      
+      --color-interactive-primary: var(--color-primary-500);
+      --color-interactive-primary-hover: var(--color-primary-400);
+      --color-interactive-primary-active: var(--color-primary-300);
+      --color-interactive-primary-text: var(--color-primary-950);
+      --color-interactive-primary-border: var(--color-primary-600);
+      
+      --color-interactive-secondary: var(--color-secondary-200);
+      --color-interactive-secondary-hover: var(--color-secondary-300);
+      --color-interactive-secondary-active: var(--color-secondary-400);
+      --color-interactive-secondary-text: var(--color-secondary-800);
+      --color-interactive-secondary-border: var(--color-secondary-400);
+      
+      --color-interactive-accent: var(--color-accent-500);
+      --color-interactive-accent-hover: var(--color-accent-400);
+      --color-interactive-accent-active: var(--color-accent-300);
+      --color-interactive-accent-text: var(--color-accent-50);
+      --color-interactive-accent-border: var(--color-accent-600);
+      
+      --color-interactive-disabled: var(--color-secondary-200);
+      --color-interactive-disabled-text: var(--color-secondary-400);
+      --color-interactive-disabled-border: var(--color-secondary-300);
+      
+      scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
+      color-scheme: light;
+    }
+  }
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light):not(.dark) {
-    --foreground: var(--color-secondary-100);
-    --background: var(--color-secondary-900);
-
-    --button-accent-bg: var(--color-accent-500);
-    --button-accent-bg-hover: var(--color-accent-400);
-    --button-accent-bg-active: var(--color-accent-300);
-    --button-accent-text: var(--color-accent-50);
-    --button-accent-border: var(--color-accent-600);
-    
-    --button-primary-bg: var(--color-primary-600);
-    --button-primary-bg-hover: var(--color-primary-500);
-    --button-primary-bg-active: var(--color-primary-400);
-    --button-primary-text: var(--color-primary-50);
-    --button-primary-border: var(--color-primary-400);
-    
-    --button-secondary-bg: var(--color-secondary-900);
-    --button-secondary-bg-hover: var(--color-secondary-800);
-    --button-secondary-bg-active: var(--color-secondary-700);
-    --button-secondary-text: var(--color-secondary-200);
-    --button-secondary-border: var(--color-secondary-700);
-    
-    --button-disabled-bg: var(--color-secondary-900);
-    --button-disabled-text: var(--color-secondary-700);
-    --button-disabled-border: var(--color-secondary-800);
-    
-    --card-bg: var(--color-secondary-900);
-    --card-border: var(--color-secondary-700);
-    
-    scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
-    color-scheme: dark;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not(.light):not(.dark) {
-    --foreground: var(--color-secondary-700);
-    --background: var(--color-secondary-50);
-
-    --button-accent-bg: var(--color-accent-500);
-    --button-accent-bg-hover: var(--color-accent-400);
-    --button-accent-bg-active: var(--color-accent-300);
-    --button-accent-text: var(--color-accent-50);
-    --button-accent-border: var(--color-accent-600);
-    
-    --button-primary-bg: var(--color-primary-500);
-    --button-primary-bg-hover: var(--color-primary-400);
-    --button-primary-bg-active: var(--color-primary-300);
-    --button-primary-text: var(--color-primary-950);
-    --button-primary-border: var(--color-primary-600);
-    
-    --button-secondary-bg: var(--color-secondary-200);
-    --button-secondary-bg-hover: var(--color-secondary-300);
-    --button-secondary-bg-active: var(--color-secondary-400);
-    --button-secondary-text: var(--color-secondary-800);
-    --button-secondary-border: var(--color-secondary-400);
-    
-    --button-disabled-bg: var(--color-secondary-200);
-    --button-disabled-text: var(--color-secondary-400);
-    --button-disabled-border: var(--color-secondary-300);
-    
-    --card-bg: var(--color-secondary-100);
-    --card-border: var(--color-secondary-300);
-    
-    scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
-    color-scheme: light;
-  }
 }

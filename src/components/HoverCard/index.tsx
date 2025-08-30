@@ -19,13 +19,13 @@ interface HoverCardProps {
 const triggerClassName = cn(`
   relative h-8 px-8 py-5
   flex items-center gap-2
-  bg-[var(--button-secondary-bg)] text-[var(--button-secondary-text)] text-2xl
+  bg-interactive-secondary text-interactive-secondary-text text-2xl
   rounded-primary cursor-pointer
   drop-shadow-4 drop-shadow-black
-  border border-[var(--button-secondary-border)]
+  border border-interactive-secondary-border
 
-  group-hover:bg-[var(--button-secondary-bg-hover)]
-  active:bg-[var(--button-secondary-bg-active)]
+  group-hover:bg-interactive-secondary-hover
+  active:bg-interactive-secondary-active
   `)
 
 export function HoverCardTrigger({ className, children, onClick }: { className?: string, children: ReactNode, onClick?: () => void }) {

@@ -4,6 +4,7 @@ import ThemeToggle from './components/ThemeToggle'
 import Button from './components/elements/Button'
 import Card from './components/elements/Card'
 import { HoverCard, HoverCardTrigger } from './components/HoverCard'
+import { Tooltip } from 'react-tooltip'
 
 function App() {
   return (
@@ -77,8 +78,8 @@ function App() {
         
         <div className="text-right">{'<Button>'}</div>
         <div className="grid grid-cols-2 gap-4">
-          <Button variant="secondary">Secondary</Button>
           <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
           <Button variant="accent">Accent</Button>
           <Button variant="error">Error</Button>
           <Button variant="busy">Busy</Button>
@@ -90,6 +91,11 @@ function App() {
           <Card className="max-w-md">
             This is a card component with some example content
           </Card>
+        </div>
+
+        <div className="text-right">{'<Tooltip>'}</div>
+        <div className="flex">
+          <div data-tooltip-id="tooltip" data-tooltip-content="This is a tooltip" className="flex">Hover me</div>
         </div>
         
         <div className="text-right">{'<HoverCard>'}</div>
@@ -104,6 +110,7 @@ function App() {
           </HoverCard>
         </div>
       </div>
+      <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />
     </div>
   )
 }
