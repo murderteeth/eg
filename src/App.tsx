@@ -76,9 +76,12 @@ function App() {
         </div>
         
         <div className="text-right">{'<Button>'}</div>
-        <div className="flex gap-4">
-          <Button>Primary</Button>
-          <Button h="secondary">Secondary</Button>
+        <div className="grid grid-cols-2 gap-4">
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="primary">Primary</Button>
+          <Button variant="accent">Accent</Button>
+          <Button variant="error">Error</Button>
+          <Button variant="busy">Busy</Button>
           <Button disabled>Disabled</Button>
         </div>
         

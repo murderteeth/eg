@@ -92,6 +92,12 @@
   --foreground: var(--color-secondary-700);
   --background: var(--color-secondary-50);
   
+  --button-accent-bg: var(--color-accent-500);
+  --button-accent-bg-hover: var(--color-accent-400);
+  --button-accent-bg-active: var(--color-accent-300);
+  --button-accent-text: var(--color-accent-50);
+  --button-accent-border: var(--color-accent-600);
+  
   --button-primary-bg: var(--color-primary-500);
   --button-primary-bg-hover: var(--color-primary-400);
   --button-primary-bg-active: var(--color-primary-300);
@@ -126,6 +132,12 @@
 :root.dark {
   --foreground: var(--color-secondary-100);
   --background: var(--color-secondary-900);
+
+  --button-accent-bg: var(--color-accent-500);
+  --button-accent-bg-hover: var(--color-accent-400);
+  --button-accent-bg-active: var(--color-accent-300);
+  --button-accent-text: var(--color-accent-50);
+  --button-accent-border: var(--color-accent-600);
   
   --button-primary-bg: var(--color-primary-600);
   --button-primary-bg-hover: var(--color-primary-500);
@@ -153,14 +165,20 @@
 :root.light {
   --foreground: var(--color-secondary-700);
   --background: var(--color-secondary-50);
+
+  --button-accent-bg: var(--color-accent-500);
+  --button-accent-bg-hover: var(--color-accent-400);
+  --button-accent-bg-active: var(--color-accent-300);
+  --button-accent-text: var(--color-accent-50);
+  --button-accent-border: var(--color-accent-600);
   
   --button-primary-bg: var(--color-primary-500);
   --button-primary-bg-hover: var(--color-primary-400);
   --button-primary-bg-active: var(--color-primary-300);
-  --button-primary-text: var(--color-primary-950);
+  --button-primary-text: var(--color-primary-50);
   --button-primary-border: var(--color-primary-600);
   
-  --button-secondary-bg: var(--color-secondary-200);
+  --button-secondary-bg: var(--color-secondary-50);
   --button-secondary-bg-hover: var(--color-secondary-300);
   --button-secondary-bg-active: var(--color-secondary-400);
   --button-secondary-text: var(--color-secondary-800);
@@ -186,6 +204,12 @@ body {
   :root:not(.light):not(.dark) {
     --foreground: var(--color-secondary-100);
     --background: var(--color-secondary-900);
+
+    --button-accent-bg: var(--color-accent-500);
+    --button-accent-bg-hover: var(--color-accent-400);
+    --button-accent-bg-active: var(--color-accent-300);
+    --button-accent-text: var(--color-accent-50);
+    --button-accent-border: var(--color-accent-600);
     
     --button-primary-bg: var(--color-primary-600);
     --button-primary-bg-hover: var(--color-primary-500);
@@ -215,6 +239,12 @@ body {
   :root:not(.light):not(.dark) {
     --foreground: var(--color-secondary-700);
     --background: var(--color-secondary-50);
+
+    --button-accent-bg: var(--color-accent-500);
+    --button-accent-bg-hover: var(--color-accent-400);
+    --button-accent-bg-active: var(--color-accent-300);
+    --button-accent-text: var(--color-accent-50);
+    --button-accent-border: var(--color-accent-600);
     
     --button-primary-bg: var(--color-primary-500);
     --button-primary-bg-hover: var(--color-primary-400);
