@@ -2,26 +2,11 @@ import { useMemo, memo } from 'react'
 import { PiFireSimpleFill } from 'react-icons/pi'
 import { cn } from '../../lib/cn'
 import { chains } from '../../lib/chains'
-import { getChainIconUrl } from '../../lib/assets'
 import { HoverCard, HoverCardTrigger } from '../HoverCard'
 import FlyInFromBottom from '../motion/FlyInFromBottom'
+import ChainIcon from '../ChainIcon'
 import { useChains } from './useChains'
 import { useMounted } from '../../hooks/useMounted'
-
-function ChainIcon({ chainId, size = 24, className }: { chainId: number; size?: number; className?: string }) {
-  return (
-    <img 
-      src={getChainIconUrl(chainId)} 
-      alt={chains[chainId]?.name}
-      width={size}
-      height={size}
-      className={cn('rounded-full', chainId === 100 ? 'invert' : '', className)}
-      onError={(e) => {
-        e.currentTarget.style.display = 'none'
-      }}
-    />
-  )
-}
 
 const ChainItem = memo(({ chainId }: { chainId: number }) => {
   const { toggleChain, isSelected } = useChains()
@@ -92,7 +77,7 @@ export function Chains() {
               {selectedArray.length === 1 && (
                 <>
                   <FlyInFromBottom _key={`chain-${selectedArray[0]}`} parentMounted={mounted}>
-                    <ChainIcon chainId={selectedArray[0]} size={40} />
+                    <ChainIcon chainId={selectedArray[0]} size={40} bgClassName="drop-shadow-2" />
                   </FlyInFromBottom>
                   <span className="ml-4">{chains[selectedArray[0]]?.name || 'Unknown'}</span>
                 </>
@@ -106,7 +91,7 @@ export function Chains() {
                       style={{ marginLeft: index === 0 ? 0 : -16 }}
                     >
                       <FlyInFromBottom _key={`chain-${chainId}`} parentMounted={mounted}>
-                        <ChainIcon chainId={chainId} size={40} />
+                        <ChainIcon chainId={chainId} size={40} bgClassName="drop-shadow-2" />
                       </FlyInFromBottom>
                     </div>
                   ))}

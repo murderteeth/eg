@@ -1,5 +1,6 @@
 import { Chains } from './components/Chains'
-import ThemeToggle from './components/elements/ThemeToggle'
+import ChainIcon from './components/ChainIcon'
+import ThemeToggle from './components/ThemeToggle'
 import Button from './components/elements/Button'
 import Card from './components/elements/Card'
 import { HoverCard, HoverCardTrigger } from './components/HoverCard'
@@ -16,6 +17,14 @@ function App() {
         <div className="text-right text-[var(--foreground)] text-xl">Chains</div>
         <div className='flex'>
           <Chains />
+        </div>
+        
+        <div className="text-right text-[var(--foreground)] text-xl">ChainIcon</div>
+        <div className="flex gap-4">
+          <ChainIcon chainId={1} size={48} />
+          <ChainIcon chainId={10} size={48} />
+          <ChainIcon chainId={100} size={48} />
+          <ChainIcon chainId={8453} size={48} />
         </div>
         
         <div className="text-right text-[var(--foreground)] text-xl">Button</div>

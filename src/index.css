@@ -57,21 +57,21 @@
   --color-secondary-950: #003653;
   --color-secondary-1000: #001a2a;
 
-  --drop-shadow-2: 2px 2px 0px rgb(0 0 0 / 1);
-  --text-shadow-2: 2px 2px 0px rgb(0 0 0 / 1);
-  --shadow-inner-2: inset 2px 2px 0px rgb(0 0 0 / 1);
+  --drop-shadow-2: 2px 2px 0px rgb(0 0 0 / 0.15);
+  --text-shadow-2: 2px 2px 0px rgb(0 0 0 / 0.15);
+  --shadow-inner-2: inset 2px 2px 0px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-3: 3px 3px 0px rgb(0 0 0 / 1);
-  --text-shadow-3: 3px 3px 0px rgb(0 0 0 / 1);
+  --drop-shadow-3: 3px 3px 0px rgb(0 0 0 / 0.15);
+  --text-shadow-3: 3px 3px 0px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-4: 4px 4px 0px rgb(0 0 0 / 1);
-  --text-shadow-4: 4px 4px 0px rgb(0 0 0 / 1);
+  --drop-shadow-4: 4px 4px 0px rgb(0 0 0 / 0.15);
+  --text-shadow-4: 4px 4px 0px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-6: 6px 6px 0px rgb(0 0 0 / 1);
-  --text-shadow-6: 6px 6px 0px rgb(0 0 0 / 1);
+  --drop-shadow-6: 6px 6px 0px rgb(0 0 0 / 0.15);
+  --text-shadow-6: 6px 6px 0px rgb(0 0 0 / 0.15);
 
-  --drop-shadow-8: 8px 8px 0px rgb(0 0 0 / 1);
-  --text-shadow-8: 8px 8px 0px rgb(0 0 0 / 1);
+  --drop-shadow-8: 8px 8px 0px rgb(0 0 0 / 0.15);
+  --text-shadow-8: 8px 8px 0px rgb(0 0 0 / 0.15);
 
   --radius-primary: var(--radius-lg);
 }
