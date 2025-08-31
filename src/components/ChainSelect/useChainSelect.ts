@@ -1,14 +1,14 @@
 import { create } from 'zustand'
 import { mainnet } from 'viem/chains'
 
-type ChainsStore = {
+type ChainSelectStore = {
   selectedChains: Set<number>
   toggleChain: (chainId: number) => void
   clearAll: () => void
   selectAll: (chainIds: number[]) => void
 }
 
-export const useChainsStore = create<ChainsStore>((set) => ({
+export const useChainSelectStore = create<ChainSelectStore>((set) => ({
   selectedChains: new Set([mainnet.id]),
   toggleChain: (chainId: number) =>
     set((state) => {
@@ -24,8 +24,8 @@ export const useChainsStore = create<ChainsStore>((set) => ({
   selectAll: (chainIds: number[]) => set({ selectedChains: new Set(chainIds) }),
 }))
 
-export function useChains() {
-  const { selectedChains, toggleChain, clearAll, selectAll } = useChainsStore()
+export function useChainSelect() {
+  const { selectedChains, toggleChain, clearAll, selectAll } = useChainSelectStore()
   return {
     selectedChains,
     toggleChain,

@@ -1,10 +1,12 @@
-import { Chains } from './components/Chains'
+import { ChainSelect } from './components/ChainSelect'
 import ChainIcon from './components/ChainIcon'
 import ThemeToggle from './components/ThemeToggle'
 import Button from './components/elements/Button'
 import Card from './components/elements/Card'
 import { HoverCard, HoverCardTrigger } from './components/HoverCard'
+import { HoverSelect } from './components/HoverSelect'
 import { Tooltip } from 'react-tooltip'
+import { PiCircleFill, PiSquareFill, PiTriangleFill, PiStarFill } from 'react-icons/pi'
 
 function App() {
   return (
@@ -66,9 +68,9 @@ function App() {
           <ThemeToggle />
         </div>
 
-        <div className="text-right">{'<Chains>'}</div>
+        <div className="text-right">{'<ChainSelect>'}</div>
         <div>
-          <Chains />
+          <ChainSelect />
         </div>
         
         <div className="text-right">{'<ChainIcon>'}</div>
@@ -103,11 +105,41 @@ function App() {
           <HoverCard
             hoverCardId="example-hover"
             trigger={<HoverCardTrigger>Hover me</HoverCardTrigger>}
+            className="w-64"
           >
             <div className="p-4">
               This content appears on hover
             </div>
           </HoverCard>
+        </div>
+
+        <div className="text-right">{'<HoverSelect>'}</div>
+        <div className="flex gap-4">
+          <HoverSelect
+            selectId="single-example"
+            options={[
+              { value: 'circle', label: 'Circle', icon: <PiCircleFill /> },
+              { value: 'square', label: 'Square', icon: <PiSquareFill /> },
+              { value: 'triangle', label: 'Triangle', icon: <PiTriangleFill /> },
+              { value: 'star', label: 'Star', icon: <PiStarFill /> },
+            ]}
+            placeholder="Select shape"
+            triggerClassName="w-82"
+          />
+          
+          <HoverSelect
+            selectId="multi-example"
+            options={[
+              { value: 'red', label: 'Red', icon: <PiCircleFill className="text-red-500" /> },
+              { value: 'blue', label: 'Blue', icon: <PiCircleFill className="text-blue-500" /> },
+              { value: 'green', label: 'Green', icon: <PiCircleFill className="text-green-500" /> },
+              { value: 'yellow', label: 'Yellow', icon: <PiCircleFill className="text-yellow-500" /> },
+            ]}
+            placeholder="Select colors"
+            multiple={true}
+            showSelectAll={true}
+            triggerClassName="w-82"
+          />
         </div>
       </div>
       <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />

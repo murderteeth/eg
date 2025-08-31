@@ -52,8 +52,8 @@ export function HoverCard({ hoverCardId, trigger, className, cardClassName, wrap
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}>
       {trigger}
-      <div className={cn('px-5 -ml-5 py-4 group-data-[open=false]:hidden group-hover:block absolute z-10000 drop-shadow-3', wrapperClassName)}>
-        <Card className={cardClassName}>
+      <div className={cn('px-5 py-4 group-data-[open=false]:hidden group-hover:block absolute z-10000 top-full -left-5 -right-5', wrapperClassName)}>
+        <Card className={cn('w-full drop-shadow-2', cardClassName)}>
           {children}
         </Card>
       </div>

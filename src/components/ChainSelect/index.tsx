@@ -1,15 +1,15 @@
 import { useMemo, memo } from 'react'
-import { PiFireSimpleFill } from 'react-icons/pi'
+import { PiFireSimpleFill, PiCaretDownBold } from 'react-icons/pi'
 import { cn } from '../../lib/cn'
 import { chains } from '../../lib/chains'
 import { HoverCard, HoverCardTrigger } from '../HoverCard'
 import FlyInFromBottom from '../motion/FlyInFromBottom'
 import ChainIcon from '../ChainIcon'
-import { useChains } from './useChains'
+import { useChainSelect } from './useChainSelect'
 import { useMounted } from '../../hooks/useMounted'
 
 const ChainItem = memo(({ chainId }: { chainId: number }) => {
-  const { toggleChain, isSelected } = useChains()
+  const { toggleChain, isSelected } = useChainSelect()
   const chain = chains[chainId]
   const selected = isSelected(chainId)
   
@@ -17,11 +17,10 @@ const ChainItem = memo(({ chainId }: { chainId: number }) => {
     <button
       onClick={() => toggleChain(chainId)}
       className={cn(
-        'group/icon w-full px-4 py-3 flex items-center',
+        'group/icon w-full pl-6 pr-8 py-3 flex items-center',
         'hover:bg-interactive-secondary-hover transition-colors',
         'active:bg-interactive-secondary-active',
-        'text-left text-xl cursor-pointer',
-        'text-[var(--foreground)]'
+        'text-left text-xl cursor-pointer'
       )}
     >
       <div className="relative w-8 h-8 overflow-hidden rounded-lg">
@@ -39,8 +38,8 @@ const ChainItem = memo(({ chainId }: { chainId: number }) => {
   )
 })
 
-export function Chains() {
-  const { selectedChains, clearAll, selectAll } = useChains()
+export function ChainSelect() {
+  const { selectedChains, clearAll, selectAll } = useChainSelect()
   const mounted = useMounted()
   
   const chainIds = useMemo(() => Object.keys(chains).map(Number), [])
@@ -65,14 +64,14 @@ export function Chains() {
           </div>
         </FlyInFromBottom>
       )}
-      <HoverCard 
-        hoverCardId="chains-selector"
+      <HoverCard
+        hoverCardId="chain-selector"
         trigger={
           <HoverCardTrigger 
-            className="w-80 justify-start"
+            className="w-86 justify-start"
             onClick={handleToggleAll}
           >
-            <span className="flex items-center w-full">
+            <span data-length={selectedArray.length} className="flex-1 flex items-center w-full data-[length=0]:opacity-60">
               {selectedArray.length === 0 && 'Select chains..'}
               {selectedArray.length === 1 && (
                 <>
@@ -98,11 +97,26 @@ export function Chains() {
                 </div>
               )}
             </span>
+            <PiCaretDownBold className="ml-2 opacity-40" size={16} />
           </HoverCardTrigger>
         }
-        cardClassName="p-0 w-80 max-h-96 overflow-y-auto"
+        cardClassName="p-0 w-86 max-h-96 overflow-y-auto"
       >
         <div>
+          <button
+            onClick={handleToggleAll}
+            className={cn(
+              'w-full pl-6 pr-8 py-3 flex items-center',
+              'hover:bg-interactive-secondary-hover transition-colors',
+              'active:bg-interactive-secondary-active',
+              'text-left text-xl cursor-pointer',
+              'border-b border-interactive-secondary-border'
+            )}
+          >
+            <span className="flex-1">{allSelected ? 'Clear all' : 'Select all'}</span>
+            {allSelected && <div className="w-3 h-3 rounded-full bg-interactive-secondary-active" />}
+          </button>
+          
           {chainIds.map((chainId) => (
             <ChainItem key={chainId} chainId={chainId} />
           ))}

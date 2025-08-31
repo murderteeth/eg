@@ -143,7 +143,7 @@
     --color-interactive-primary-text: var(--color-primary-50);
     --color-interactive-primary-border: var(--color-primary-600);
     
-    --color-interactive-secondary: var(--color-secondary-200);
+    --color-interactive-secondary: var(--color-secondary-100);
     --color-interactive-secondary-hover: var(--color-secondary-300);
     --color-interactive-secondary-active: var(--color-secondary-200);
     --color-interactive-secondary-text: var(--color-secondary-600);

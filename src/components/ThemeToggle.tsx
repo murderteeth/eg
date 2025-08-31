@@ -50,7 +50,6 @@ export default function ThemeToggle() {
 
   return (
     <Button
-      h='secondary'
       onClick={cycleTheme}
       className="p-5"
       aria-label={`Current theme: ${theme}. Click to change.`}
