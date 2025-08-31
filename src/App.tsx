@@ -7,6 +7,7 @@ import { HoverCard, HoverCardTrigger } from './components/HoverCard'
 import { HoverSelect } from './components/HoverSelect'
 import { Tooltip } from 'react-tooltip'
 import { PiCircleFill, PiSquareFill, PiTriangleFill, PiStarFill } from 'react-icons/pi'
+import { Yearn } from './components/Yearn'
 
 function App() {
   return (
@@ -66,6 +67,13 @@ function App() {
         <div className="text-right">{'<ThemeToggle>'}</div>
         <div>
           <ThemeToggle />
+        </div>
+
+        <div className="text-right">{'<Yearn>'}</div>
+        <div className="flex gap-4">
+          <Yearn front="text-primary-50" back="text-primary-600" size={48} />
+          <Yearn front="text-secondary-200" back="text-secondary-900" size={48} />
+          <Yearn front="text-accent-50" back="text-accent-500" size={48} />
         </div>
 
         <div className="text-right">{'<ChainSelect>'}</div>
