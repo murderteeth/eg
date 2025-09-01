@@ -12,6 +12,8 @@ import FlyInFromLeft from './components/motion/FlyInFromLeft'
 import FlyInFromTop from './components/motion/FlyInFromTop'
 import FlyInFromBottom from './components/motion/FlyInFromBottom'
 import ScaleIn from './components/motion/ScaleIn'
+import Skeleton from './components/Skeleton'
+import Switch from './components/elements/Switch'
 import { useState } from 'react'
 
 function MotionDemo({ MotionComponent, label }: { MotionComponent: React.ComponentType<{ children: React.ReactNode, _key: string }>, label: string }) {
@@ -29,6 +31,8 @@ function MotionDemo({ MotionComponent, label }: { MotionComponent: React.Compone
 }
 
 function App() {
+  const [switchValue, setSwitchValue] = useState(false)
+  
   return (
     <div className="px-16 pt-8 pb-96">
       <div className="grid grid-cols-[200px_1fr] gap-y-12 gap-x-12 items-center max-w-6xl">
@@ -175,6 +179,20 @@ function App() {
           <MotionDemo MotionComponent={FlyInFromTop} label="From Top" />
           <MotionDemo MotionComponent={FlyInFromBottom} label="From Bottom" />
           <MotionDemo MotionComponent={ScaleIn} label="Scale In" />
+        </div>
+
+        <div className="text-right">{'<Skeleton>'}</div>
+        <div className="flex gap-4">
+          <Skeleton className="w-32 h-12" />
+          <Skeleton className="w-32 h-12" />
+          <Skeleton className="w-32 h-12" />
+        </div>
+
+        <div className="text-right">{'<Switch>'}</div>
+        <div className="flex gap-8">
+          <Switch label="Toggle me" checked={switchValue} onChange={setSwitchValue} />
+          <Switch label="Always on" checked={true} />
+          <Switch label="Disabled" checked={false} disabled={true} />
         </div>
       </div>
       <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />
