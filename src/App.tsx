@@ -8,6 +8,25 @@ import { HoverSelect } from './components/HoverSelect'
 import { Tooltip } from 'react-tooltip'
 import { PiCircleFill, PiSquareFill, PiTriangleFill, PiStarFill } from 'react-icons/pi'
 import { Yearn } from './components/Yearn'
+import FlyInFromLeft from './components/motion/FlyInFromLeft'
+import FlyInFromTop from './components/motion/FlyInFromTop'
+import FlyInFromBottom from './components/motion/FlyInFromBottom'
+import ScaleIn from './components/motion/ScaleIn'
+import { useState } from 'react'
+
+function MotionDemo({ MotionComponent, label }: { MotionComponent: React.ComponentType<{ children: React.ReactNode, _key: string }>, label: string }) {
+  const [key, setKey] = useState(0)
+  
+  return (
+    <div onClick={() => setKey(k => k + 1)} className="cursor-pointer">
+      <MotionComponent key={key} _key={key.toString()}>
+        <Card className="p-4 w-42 whitespace-nowrap text-center">
+          {label}
+        </Card>
+      </MotionComponent>
+    </div>
+  )
+}
 
 function App() {
   return (
@@ -148,6 +167,14 @@ function App() {
             showSelectAll={true}
             triggerClassName="w-82"
           />
+        </div>
+
+        <div className="text-right">{'<Motion>'}</div>
+        <div className="flex gap-4">
+          <MotionDemo MotionComponent={FlyInFromLeft} label="From Left" />
+          <MotionDemo MotionComponent={FlyInFromTop} label="From Top" />
+          <MotionDemo MotionComponent={FlyInFromBottom} label="From Bottom" />
+          <MotionDemo MotionComponent={ScaleIn} label="Scale In" />
         </div>
       </div>
       <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />
