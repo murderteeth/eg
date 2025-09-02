@@ -14,6 +14,8 @@ import FlyInFromBottom from './components/motion/FlyInFromBottom'
 import ScaleIn from './components/motion/ScaleIn'
 import Skeleton from './components/Skeleton'
 import Switch from './components/elements/Switch'
+import Input from './components/elements/Input'
+import Textarea from './components/elements/Textarea'
 import { useState } from 'react'
 
 function MotionDemo({ MotionComponent, label }: { MotionComponent: React.ComponentType<{ children: React.ReactNode, _key: string }>, label: string }) {
@@ -32,6 +34,8 @@ function MotionDemo({ MotionComponent, label }: { MotionComponent: React.Compone
 
 function App() {
   const [switchValue, setSwitchValue] = useState(false)
+  const [inputValue, setInputValue] = useState('')
+  const [textareaValue, setTextareaValue] = useState('')
   
   return (
     <div className="px-16 pt-8 pb-96">
@@ -193,6 +197,60 @@ function App() {
           <Switch label="Toggle me" checked={switchValue} onChange={setSwitchValue} />
           <Switch label="Always on" checked={true} />
           <Switch label="Disabled" checked={false} disabled={true} />
+        </div>
+
+        <div className="text-right">{'<Input>'}</div>
+        <div className="flex flex-col gap-4">
+          <Input 
+            value={inputValue} 
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Type something..."
+            className="w-96"
+          />
+          <Input 
+            placeholder="Warning state"
+            theme="warn"
+            className="w-96"
+          />
+          <Input 
+            placeholder="Error state"
+            theme="error"
+            className="w-96"
+          />
+          <Input 
+            placeholder="Disabled input"
+            disabled
+            className="w-96"
+          />
+        </div>
+
+        <div className="text-right">{'<Textarea>'}</div>
+        <div className="flex flex-col gap-4">
+          <Textarea 
+            value={textareaValue}
+            onChange={(e) => setTextareaValue(e.target.value)}
+            placeholder="Enter multiple lines of text..."
+            rows={4}
+            className="w-96"
+          />
+          <Textarea 
+            placeholder="Warning textarea"
+            theme="warn"
+            rows={3}
+            className="w-96"
+          />
+          <Textarea 
+            placeholder="Error textarea"
+            theme="error"
+            rows={3}
+            className="w-96"
+          />
+          <Textarea 
+            placeholder="Disabled textarea"
+            disabled
+            rows={3}
+            className="w-96"
+          />
         </div>
       </div>
       <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />
