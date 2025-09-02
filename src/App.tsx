@@ -17,7 +17,8 @@ import Skeleton from './components/Skeleton'
 import Switch from './components/elements/Switch'
 import Input from './components/elements/Input'
 import Textarea from './components/elements/Textarea'
-import { useState } from 'react'
+import Odometer, { FORMAT_2_DECIMALS } from './components/Odometer'
+import { useState, useEffect } from 'react'
 
 function MotionDemo({ MotionComponent, label }: { MotionComponent: React.ComponentType<{ children: React.ReactNode, _key: string }>, label: string }) {
   const [key, setKey] = useState(0)
@@ -37,6 +38,15 @@ function App() {
   const [switchValue, setSwitchValue] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [textareaValue, setTextareaValue] = useState('')
+  const [odometerValue, setOdometerValue] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOdometerValue(prev => prev + 1)
+    }, 3000)
+    
+    return () => clearInterval(interval)
+  }, [])
   
   return (
     <div className="px-16 pt-8 pb-96">
@@ -135,6 +145,11 @@ function App() {
           <Card className="max-w-md">
             This is a card component with some example content
           </Card>
+        </div>
+
+        <div className="text-right">{'<Odometer>'}</div>
+        <div className="flex gap-4">
+          <Odometer value={odometerValue} format={FORMAT_2_DECIMALS} className="text-4xl font-bold" />
         </div>
 
         <div className="text-right">{'<Tooltip>'}</div>
