@@ -1,5 +1,6 @@
 import { ChainSelect } from './components/ChainSelect'
 import ChainIcon from './components/ChainIcon'
+import TokenIcon from './components/TokenIcon'
 import ThemeToggle from './components/ThemeToggle'
 import Button from './components/elements/Button'
 import Card from './components/elements/Card'
@@ -111,6 +112,12 @@ function App() {
         <div className="text-right">{'<ChainIcon>'}</div>
         <div className="flex gap-4">
           <ChainIcon chainId={1} size={48} />
+        </div>
+        
+        <div className="text-right">{'<TokenIcon>'}</div>
+        <div className="flex gap-4">
+          <TokenIcon chainId={1} address="0xdC035D45d973E3EC169d2276DDab16f1e407384F" size={48} />
+          <TokenIcon chainId={1} address="0xdC035D45d973E3EC169d2276DDab16f1e407384F" size={48} showChain={true} />
         </div>
         
         <div className="text-right">{'<Button>'}</div>

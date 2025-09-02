@@ -5,5 +5,5 @@ export function getChainIconUrl(chainId: number) {
 }
 
 export function getTokenIconUrl(chainId: number, address: string) {
-  return `${BASE_URL}tokens/${chainId}/${address}/logo.svg`
+  return `${BASE_URL}tokens/${chainId}/${address.toLowerCase()}/logo.svg`
 }
