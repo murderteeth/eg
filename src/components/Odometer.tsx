@@ -17,5 +17,5 @@ export default function Odometer({ value, format, uponly = false, prefix = '', s
     }
   }, [value, uponly, displayValue, setDisplayValue])
 
-  return <NumberFlow value={displayValue} format={format} prefix={prefix} suffix={suffix} className={className} />
+  return <NumberFlow value={displayValue} format={format} prefix={prefix} suffix={suffix} className={`font-mono ${className}`} />
 }

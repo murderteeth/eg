@@ -52,6 +52,11 @@ function App() {
     <div className="px-16 pt-8 pb-96">
       <div className="grid grid-cols-[200px_1fr] gap-y-12 gap-x-12 items-center max-w-6xl">
 
+        <div className="text-right">{'<ThemeToggle>'}</div>
+        <div>
+          <ThemeToggle />
+        </div>
+
         <div className="text-right flex flex-col gap-3">
           <div>{'<Primary>'}</div>
           <div>{'<Secondary>'}</div>
@@ -101,10 +106,43 @@ function App() {
           </div>
         </div>
 
+        <div className="text-right">{'<Typography>'}</div>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <h3 className="font-sans text-lg font-semibold">Font Usage Rules</h3>
+            <div className="text-sm text-secondary-600">
+              <div><strong>Inter (Sans Serif):</strong> General text, headings, UI labels</div>
+              <div><strong>Google Sans Code (Monospace):</strong> Numbers, code, technical data</div>
+            </div>
+          </div>
 
-        <div className="text-right">{'<ThemeToggle>'}</div>
-        <div>
-          <ThemeToggle />
+          <div className="grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="font-sans text-base font-semibold mb-3">Sans Serif Examples</h4>
+              <div className="flex flex-col gap-2">
+                <div className="font-sans text-3xl font-bold">Heading Bold</div>
+                <div className="font-sans text-2xl font-semibold">Heading Semibold</div>
+                <div className="font-sans text-xl font-medium">Heading Medium</div>
+                <div className="font-sans text-base">Regular body text with good readability</div>
+                <div className="font-sans text-sm text-secondary-600">Secondary text information</div>
+                <div className="font-sans text-xs text-secondary-500">Small caption text</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-sans text-base font-semibold mb-3">Monospace Examples</h4>
+              <div className="flex flex-col gap-2">
+                <div className="font-mono text-2xl font-bold">$1,234.56</div>
+                <div className="font-mono text-xl">42.000000 ETH</div>
+                <div className="font-mono text-base">0x1234...abcd</div>
+                <div className="font-mono text-sm">Block: 18,547,291</div>
+                <div className="font-mono text-xs">Gas: 21000 gwei</div>
+                <div className="font-mono text-sm bg-secondary-100 dark:bg-secondary-800 p-2 rounded">
+                  function transfer(address to, uint256 amount)
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="text-right">{'<Yearn>'}</div>
