@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
 import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 import { Server } from '@modelcontextprotocol/sdk/server/index.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import {
@@ -178,6 +182,24 @@ const COMPONENTS = {
       '<Yearn front="text-secondary-200" back="text-secondary-900" size={48} />',
       '<Yearn front="text-accent-50" back="text-accent-500" size={48} />'
     ]
+  },
+  Header: {
+    path: '../react/src/components/Header.tsx',
+    category: 'components',
+    description: 'Header component with sticky positioning and backdrop blur',
+    examples: [
+      '<Header><div>Logo</div><div>Navigation</div></Header>',
+      '<Header className="relative"><div className="text-lg font-semibold">Example Header</div><div className="flex gap-4"><Button variant="secondary" className="h-6 px-4 py-2 text-base">Nav Item</Button><Button variant="primary" className="h-6 px-4 py-2 text-base">CTA</Button></div></Header>'
+    ]
+  },
+  Footer: {
+    path: '../react/src/components/Footer.tsx',
+    category: 'components',
+    description: 'Footer component with top border and backdrop blur',
+    examples: [
+      '<Footer><div>Logo</div><div>Copyright</div></Footer>',
+      '<Footer><div>&lt;Footer&gt;</div><div className="text-sm text-content-secondary">© 2024 EG Design System</div></Footer>'
+    ]
   }
 } as const
 
@@ -187,7 +209,7 @@ type ComponentName = keyof typeof COMPONENTS
 function readComponent(componentName: ComponentName): string {
   try {
     const component = COMPONENTS[componentName]
-    const filePath = join(process.cwd(), component.path)
+    const filePath = join(__dirname, component.path)
     return readFileSync(filePath, 'utf-8')
   } catch (error) {
     throw new Error(`Failed to read component ${componentName}: ${error}`)
@@ -197,7 +219,7 @@ function readComponent(componentName: ComponentName): string {
 // Helper function to read design system docs
 function readDesignSystemDocs(): string {
   try {
-    const filePath = join(process.cwd(), '../react/DESIGNSYSTEM.md')
+    const filePath = join(__dirname, '../react/DESIGNSYSTEM.md')
     return readFileSync(filePath, 'utf-8')
   } catch (error) {
     throw new Error(`Failed to read design system documentation: ${error}`)
@@ -207,7 +229,7 @@ function readDesignSystemDocs(): string {
 // Helper function to read CSS theme
 function readThemeCSS(): string {
   try {
-    const filePath = join(process.cwd(), '../react/src/index.css')
+    const filePath = join(__dirname, '../react/src/index.css')
     return readFileSync(filePath, 'utf-8')
   } catch (error) {
     throw new Error(`Failed to read theme CSS: ${error}`)

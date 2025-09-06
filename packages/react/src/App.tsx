@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { PiCircleFill, PiSquareFill, PiStarFill, PiTriangleFill } from 'react-icons/pi'
+import { PiCircleFill, PiGithubLogoFill, PiSquareFill, PiStarFill, PiTriangleFill } from 'react-icons/pi'
 import { Tooltip } from 'react-tooltip'
 import ChainIcon from './components/ChainIcon'
 import { ChainSelect } from './components/ChainSelect'
@@ -8,6 +8,8 @@ import Card from './components/elements/Card'
 import Input from './components/elements/Input'
 import Switch from './components/elements/Switch'
 import Textarea from './components/elements/Textarea'
+import Footer from './components/Footer'
+import Header from './components/Header'
 import { HoverCard, HoverCardTrigger } from './components/HoverCard'
 import { HoverSelect } from './components/HoverSelect'
 import FlyInFromBottom from './components/motion/FlyInFromBottom'
@@ -60,12 +62,17 @@ function App() {
   }, [])
 
   return (
-    <div className="px-16 pt-8 pb-96">
-      <div className="grid grid-cols-[200px_1fr] gap-y-12 gap-x-12 items-center max-w-6xl">
-        <div className="text-right">{'<ThemeToggle>'}</div>
-        <div>
+    <div>
+      <Header>
+        <div>&lt;Header&gt;</div>
+        <div className="flex items-center gap-12">
+          <div>{'<ThemeToggle>'}</div>
           <ThemeToggle />
         </div>
+      </Header>
+      
+      <div className="px-16 pt-8 pb-96">
+        <div className="grid grid-cols-[200px_1fr] gap-y-12 gap-x-12 items-center max-w-6xl">
 
         <div className="text-right flex flex-col gap-3">
           <div>{'<Primary>'}</div>
@@ -296,10 +303,21 @@ function App() {
           <Textarea placeholder="Warning textarea" theme="warn" rows={3} className="w-96" />
           <Textarea placeholder="Error textarea" theme="error" rows={3} className="w-96" />
           <Textarea placeholder="Disabled textarea" disabled rows={3} className="w-96" />
+          </div>
         </div>
+        {/* biome-ignore lint/correctness/useUniqueElementIds: Global tooltip needs static ID for data-tooltip-id references */}
+        <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />
       </div>
-      {/* biome-ignore lint/correctness/useUniqueElementIds: Global tooltip needs static ID for data-tooltip-id references */}
-      <Tooltip id="tooltip" className="z-[10000] font-mono !text-xl !rounded-primary" />
+      
+      <Footer>
+        <div>&lt;Footer&gt;</div>
+        <div className="text-content-secondary">
+          <a href="https://github.com/yearn/eg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <PiGithubLogoFill />
+            GitHub
+          </a>
+        </div>
+      </Footer>
     </div>
   )
 }

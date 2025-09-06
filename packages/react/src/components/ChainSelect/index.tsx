@@ -37,7 +37,11 @@ const ChainItem = memo(({ chainId }: { chainId: number }) => {
   )
 })
 
-export function ChainSelect() {
+interface ChainSelectProps {
+  showAllChainsIndicator?: boolean
+}
+
+export function ChainSelect({ showAllChainsIndicator = false }: ChainSelectProps = {}) {
   const { selectedChains, clearAll, selectAll } = useChainSelect()
   const mounted = useMounted()
 
@@ -55,7 +59,7 @@ export function ChainSelect() {
 
   return (
     <div className="flex relative select-none">
-      {allSelected && (
+      {showAllChainsIndicator && allSelected && (
         <FlyInFromBottom _key="all-chains-indicator" className="absolute -top-6 left-0 ml-2">
           <div className="flex items-center gap-1 text-sm italic">
             <PiFireSimpleFill />
