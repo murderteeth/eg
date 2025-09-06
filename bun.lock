@@ -8,7 +8,7 @@
       },
     },
     "packages/mcp": {
-      "name": "@eg/mcp-server",
+      "name": "@eg/mcp",
       "version": "0.0.1",
       "bin": {
         "eg-mcp": "./dist/index.js",
@@ -109,7 +109,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.2.3", "", { "os": "win32", "cpu": "x64" }, "sha512-gvCpewE7mBwBIpqk1YrUqNR4mCiyJm6UI3YWQQXkedSSEwzRdodRpaKhbdbHw1/hmTWOVXQ+Eih5Qctf4TCVOQ=="],
 
-    "@eg/mcp-server": ["@eg/mcp-server@workspace:packages/mcp"],
+    "@eg/mcp": ["@eg/mcp@workspace:packages/mcp"],
 
     "@eg/react": ["@eg/react@workspace:packages/react"],
 
