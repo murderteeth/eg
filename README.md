@@ -12,32 +12,48 @@ bun dev
 
 The EG design system includes a Model Context Protocol (MCP) server that exposes all components to AI assistants like Claude Code, Codex, Cursor, and VS Code.
 
-### Option 1: GitHub Link (Recommended)
+### Quick Install
 
-In Claude Code, open the command palette (`Cmd+Shift+P`) and run:
+Clone and build the repo:
 
+```bash
+git clone https://github.com/yearn/eg.git ~/git/eg
 ```
-Claude Code: Add MCP Server
+
+```bash
+(cd ../eg && bun install && bun run build:mcp)
 ```
 
-Then add:
-- **Name**: `eg-system`
-- **Command**: `bunx`  
-- **Args**: `--bun`, `github:yearn/eg#main`, `eg-mcp`
+Install MCP server:
 
-### Option 2: Local File System Path
+```bash
+claude mcp add-json eg '{"command":"bun","args":["../eg/packages/mcp/dist/index.js"]}'
+```
 
-For development or if you have the repo locally, build and:
+Check health:
 
-```json
-{
-  "mcpServers": {
-    "eg-dev": {
-      "command": "node", 
-      "args": ["/absolute/path/to/eg/packages/mcp/dist/index.js"]
-    }
-  }
-}
+```base
+claude mcp list
+```
+
+To remove:
+
+```bash
+claude mcp remove eg
+```
+
+To update:
+
+```bash
+(cd ../eg && git pull && bun install && bun run build:mcp)
+```
+
+To explore:
+
+```base
+claude
+/mcp
+# find eg in the list, enter
 ```
 
 ### What You Get
