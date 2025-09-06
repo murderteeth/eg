@@ -1,5 +1,5 @@
 {
-  "name": "@eg/mcp-server",
+  "name": "@eg/mcp",
   "version": "0.0.1",
   "type": "module",
   "main": "./dist/index.js",
@@ -10,7 +10,7 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "prepare": "bun run build",
-    "test": "npx @modelcontextprotocol/inspector dist/index.js"
+    "inspect": "bunx @modelcontextprotocol/inspector dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.5"

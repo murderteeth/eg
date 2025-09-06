@@ -376,3 +376,34 @@ Before committing a new component, verify:
 - [ ] Data attributes are used for variant styling
 - [ ] Component is accessible (keyboard nav, ARIA, focus indicators)
 - [ ] Example usage is added to App.tsx for demonstration
+- [ ] **Component is registered in MCP server** (see below)
+
+### Adding Components to MCP Server
+
+When adding new components, you must update the static registry in `packages/mcp/src/index.ts` to make them discoverable by AI assistants:
+
+1. **Add to COMPONENTS registry**:
+   ```typescript
+   const COMPONENTS = {
+     // ... existing components
+     YourNewComponent: {
+       path: '../react/src/components/YourNewComponent.tsx',
+       category: 'elements', // or 'motion' or 'components'
+       description: 'Brief description of what this component does',
+       examples: [
+         '<YourNewComponent prop="value">Example usage</YourNewComponent>'
+       ]
+     }
+   }
+   ```
+
+2. **Extract examples from App.tsx**: Copy the exact JSX usage from your App.tsx demo
+
+3. **Choose appropriate category**:
+   - `elements` - Basic UI building blocks (Button, Input, Card)  
+   - `motion` - Animation wrappers (FlyInFromLeft, ScaleIn)
+   - `components` - Complex interactive components (ChainSelect, HoverCard)
+
+4. **Test MCP server**: Run `cd packages/mcp && bun test` to verify the component is discoverable
+
+This ensures your component is available to AI assistants via the MCP protocol for code generation and documentation.
