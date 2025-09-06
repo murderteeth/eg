@@ -6,19 +6,42 @@ This file provides guidance to AI agents when working with code in this reposito
 
 ### Development
 ```bash
-npm run dev          # Start development server on port 3000
-npm run build        # Type check with TypeScript and build for production
-npm run preview      # Preview production build locally
-npm run lint         # Run ESLint for code quality checks
-npm run clean        # Remove node_modules and bun.json
+# Root level commands
+bun dev              # Start React development server
+bun build            # Build both React app and MCP server
+bun build:react      # Build React app only
+bun build:mcp        # Build MCP server only
+bun lint             # Run Biome checks on all packages
+bun lint:fix         # Fix auto-fixable Biome issues in all packages
+bun format           # Format code in all packages with Biome
+bun clean            # Clean all node_modules and dist directories
+
+# React package (packages/react)
+cd packages/react
+bun dev              # Start development server on port 3000
+bun build            # Type check with TypeScript and build for production
+bun preview          # Preview production build locally
+bun lint             # Run Biome linting and formatting checks
+bun lint:fix         # Fix auto-fixable Biome issues
+bun format           # Format code with Biome
+
+# MCP server package (packages/mcp)
+cd packages/mcp
+bun build            # Build TypeScript to dist/
+bun dev              # Watch mode for development
+bun test             # Test with MCP inspector
 ```
 
 ## Architecture
 
-### Design System Repository
-This is a React-based design system with a comprehensive component library focused on modern, technical interfaces.
+### Monorepo Structure
+This is a Bun workspace monorepo containing:
+- **packages/react** - React-based design system and component library
+- **packages/mcp** - Model Context Protocol server for AI integration
 
 ### Core Technologies
+
+#### React Package
 - **React 19** with TypeScript for type safety
 - **Vite** for fast development and optimized builds
 - **Tailwind CSS v4** with custom design tokens
@@ -27,25 +50,52 @@ This is a React-based design system with a comprehensive component library focus
 - **Radix UI** for accessible component primitives
 - **@number-flow/react** for animated number displays
 
+#### MCP Server Package
+- **@modelcontextprotocol/sdk** for MCP protocol implementation
+- **TypeScript** with Node16 module resolution
+- Exposes design system components to AI assistants
+
 ### Project Structure
-- `/src/components/` - Reusable UI components
-  - `/elements/` - Base components (Button, Card, Input, Switch, Textarea)
-  - `/motion/` - Animation wrapper components (FlyInFromLeft, FlyInFromTop, FlyInFromBottom, ScaleIn)
-  - `/HoverCard/` - Overlay card with hover state management
-  - `/HoverSelect/` - Dropdown select component
-  - `/ChainSelect/` - Multi-select dropdown for blockchain chains
-  - `ChainIcon.tsx` - Icon component for blockchain chains
-  - `TokenIcon.tsx` - Icon component for tokens
-  - `Odometer.tsx` - Animated number display component
-  - `Skeleton.tsx` - Loading placeholder component
-  - `ThemeToggle.tsx` - Light/dark mode switcher
-  - `ImgOrBg.tsx` - Image/background utility component
-  - `Yearn.tsx` - Yearn protocol specific component
-- `/src/hooks/` - Custom React hooks
-- `/src/lib/` - Utility functions and helpers
-  - `cn.ts` - Class name utility using clsx and tailwind-merge
-  - `chains.ts` - Chain configuration data
-- `/src/index.css` - Global styles and Tailwind configuration
+```
+eg/
+├── packages/
+│   ├── react/                    # React design system
+│   │   ├── src/
+│   │   │   ├── components/       # Reusable UI components
+│   │   │   │   ├── elements/     # Base components (Button, Card, Input, Switch, Textarea)
+│   │   │   │   ├── motion/       # Animation wrappers (FlyInFromLeft, FlyInFromTop, etc.)
+│   │   │   │   ├── HoverCard/    # Overlay card with hover state
+│   │   │   │   ├── HoverSelect/  # Dropdown select component
+│   │   │   │   ├── ChainSelect/  # Multi-select for blockchain chains
+│   │   │   │   ├── ChainIcon.tsx # Icon component for chains
+│   │   │   │   ├── TokenIcon.tsx # Icon component for tokens
+│   │   │   │   ├── Odometer.tsx  # Animated number display
+│   │   │   │   ├── Skeleton.tsx  # Loading placeholder
+│   │   │   │   ├── ThemeToggle.tsx # Light/dark mode switcher
+│   │   │   │   ├── ImgOrBg.tsx   # Image/background utility
+│   │   │   │   └── Yearn.tsx     # Yearn protocol component
+│   │   │   ├── hooks/            # Custom React hooks
+│   │   │   ├── lib/              # Utilities and helpers
+│   │   │   │   ├── cn.ts         # Class name utility
+│   │   │   │   └── chains.ts     # Chain configuration
+│   │   │   └── index.css         # Global styles
+│   │   ├── public/               # Static assets
+│   │   ├── index.html            # HTML entry point
+│   │   ├── vite.config.ts        # Vite configuration
+│   │   ├── tsconfig.json         # TypeScript config
+│   │   ├── package.json          # Package dependencies
+│   │   └── DESIGNSYSTEM.md       # Design system documentation
+│   │
+│   └── mcp/                      # MCP server
+│       ├── src/
+│       │   └── index.ts          # MCP server implementation
+│       ├── dist/                 # Built output
+│       ├── tsconfig.json         # TypeScript config
+│       └── package.json          # Package dependencies
+│
+├── AGENTS.md                     # This file - AI guidance
+└── package.json                 # Root workspace configuration
+```
 
 ### Component Design Principles
 

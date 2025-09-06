@@ -1,2 +1,12 @@
 # eg
-tiny design system
+design system by example
+
+
+## lfg
+```
+
+bun i
+bun dev
+
+
+```

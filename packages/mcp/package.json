@@ -1,0 +1,25 @@
+{
+  "name": "@eg/mcp-server",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "eg-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepare": "bun run build",
+    "test": "npx @modelcontextprotocol/inspector dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "~5.8.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
