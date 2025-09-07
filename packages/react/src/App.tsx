@@ -171,7 +171,7 @@ function App() {
           <div className="text-right">{'<ImgOrBg>'}</div>
           <div className="flex gap-4 items-center">
             <ImgOrBg
-              src="https://invalid/image.png"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E"
               alt="Invalid content"
               width={48}
               height={48}
