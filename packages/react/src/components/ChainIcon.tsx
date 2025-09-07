@@ -13,7 +13,7 @@ type Props = {
 export default function ChainIcon({ chainId, size = 24, className, bgClassName }: Props) {
   return (
     <ImgOrBg
-      bgClassName={cn('bg-white rounded-full', bgClassName)}
+      bgClassName={cn('rounded-full', bgClassName)}
       src={getChainIconUrl(chainId)}
       alt={chains[chainId]?.name}
       width={size}
