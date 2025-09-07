@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
 import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
 import { Server } from '@modelcontextprotocol/sdk/server/index.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import {
@@ -28,16 +29,14 @@ const COMPONENTS = {
       '<Button variant="accent">Accent</Button>',
       '<Button variant="error">Error</Button>',
       '<Button variant="busy">Busy</Button>',
-      '<Button disabled>Disabled</Button>'
-    ]
+      '<Button disabled>Disabled</Button>',
+    ],
   },
   Card: {
     path: '../react/src/components/elements/Card.tsx',
     category: 'elements',
     description: 'Card container with consistent styling and shadows',
-    examples: [
-      '<Card className="max-w-md">This is a card component with some example content</Card>'
-    ]
+    examples: ['<Card className="max-w-md">This is a card component with some example content</Card>'],
   },
   Input: {
     path: '../react/src/components/elements/Input.tsx',
@@ -47,8 +46,8 @@ const COMPONENTS = {
       '<Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Type something..." className="w-96" />',
       '<Input placeholder="Warning state" theme="warn" className="w-96" />',
       '<Input placeholder="Error state" theme="error" className="w-96" />',
-      '<Input placeholder="Disabled input" disabled className="w-96" />'
-    ]
+      '<Input placeholder="Disabled input" disabled className="w-96" />',
+    ],
   },
   Switch: {
     path: '../react/src/components/elements/Switch.tsx',
@@ -57,8 +56,8 @@ const COMPONENTS = {
     examples: [
       '<Switch label="Toggle me" checked={switchValue} onChange={setSwitchValue} />',
       '<Switch label="Always on" checked={true} />',
-      '<Switch label="Disabled" checked={false} disabled={true} />'
-    ]
+      '<Switch label="Disabled" checked={false} disabled={true} />',
+    ],
   },
   Textarea: {
     path: '../react/src/components/elements/Textarea.tsx',
@@ -68,42 +67,50 @@ const COMPONENTS = {
       '<Textarea value={textareaValue} onChange={(e) => setTextareaValue(e.target.value)} placeholder="Enter multiple lines of text..." rows={4} className="w-96" />',
       '<Textarea placeholder="Warning textarea" theme="warn" rows={3} className="w-96" />',
       '<Textarea placeholder="Error textarea" theme="error" rows={3} className="w-96" />',
-      '<Textarea placeholder="Disabled textarea" disabled rows={3} className="w-96" />'
-    ]
+      '<Textarea placeholder="Disabled textarea" disabled rows={3} className="w-96" />',
+    ],
   },
-  
+
   // Motion components
   FlyInFromLeft: {
     path: '../react/src/components/motion/FlyInFromLeft.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the left',
     examples: [
-      '<FlyInFromLeft _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Left</Card></FlyInFromLeft>'
-    ]
+      '<FlyInFromLeft _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Left</Card></FlyInFromLeft>',
+    ],
+  },
+  FlyInFromRight: {
+    path: '../react/src/components/motion/FlyInFromRight.tsx',
+    category: 'motion',
+    description: 'Animation wrapper that flies content in from the right',
+    examples: [
+      '<FlyInFromRight _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Right</Card></FlyInFromRight>',
+    ],
   },
   FlyInFromTop: {
     path: '../react/src/components/motion/FlyInFromTop.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the top',
     examples: [
-      '<FlyInFromTop _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Top</Card></FlyInFromTop>'
-    ]
+      '<FlyInFromTop _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Top</Card></FlyInFromTop>',
+    ],
   },
   FlyInFromBottom: {
     path: '../react/src/components/motion/FlyInFromBottom.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the bottom',
     examples: [
-      '<FlyInFromBottom _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Bottom</Card></FlyInFromBottom>'
-    ]
+      '<FlyInFromBottom _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">From Bottom</Card></FlyInFromBottom>',
+    ],
   },
   ScaleIn: {
     path: '../react/src/components/motion/ScaleIn.tsx',
     category: 'motion',
     description: 'Animation wrapper that scales content in',
     examples: [
-      '<ScaleIn _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">Scale In</Card></ScaleIn>'
-    ]
+      '<ScaleIn _key={key.toString()}><Card className="p-4 w-42 whitespace-nowrap text-center">Scale In</Card></ScaleIn>',
+    ],
   },
 
   // Complex components
@@ -111,58 +118,48 @@ const COMPONENTS = {
     path: '../react/src/components/ChainIcon.tsx',
     category: 'components',
     description: 'Icon component for blockchain networks',
-    examples: [
-      '<ChainIcon chainId={1} size={48} />'
-    ]
+    examples: ['<ChainIcon chainId={1} size={48} />'],
   },
   ChainSelect: {
     path: '../react/src/components/ChainSelect/index.tsx',
     category: 'components',
     description: 'Multi-select dropdown for blockchain chains with search',
-    examples: [
-      '<ChainSelect />'
-    ]
+    examples: ['<ChainSelect />'],
   },
   HoverCard: {
     path: '../react/src/components/HoverCard/index.tsx',
     category: 'components',
     description: 'Hover-triggered card overlay with positioning',
     examples: [
-      '<HoverCard hoverCardId="example-hover" trigger={<HoverCardTrigger>Hover me</HoverCardTrigger>} className="w-64"><div className="p-4">This content appears on hover</div></HoverCard>'
-    ]
+      '<HoverCard hoverCardId="example-hover" trigger={<HoverCardTrigger>Hover me</HoverCardTrigger>} className="w-64"><div className="p-4">This content appears on hover</div></HoverCard>',
+    ],
   },
   HoverSelect: {
     path: '../react/src/components/HoverSelect/HoverSelect.tsx',
-    category: 'components', 
+    category: 'components',
     description: 'Dropdown select with hover interactions and multi-select support',
     examples: [
       '<HoverSelect selectId="single-example" options={[{ value: "circle", label: "Circle", icon: <PiCircleFill /> }]} placeholder="Select shape" triggerClassName="w-82" />',
-      '<HoverSelect selectId="multi-example" options={[{ value: "red", label: "Red", icon: <PiCircleFill className="text-red-500" /> }]} placeholder="Select colors" multiple={true} showSelectAll={true} triggerClassName="w-82" />'
-    ]
+      '<HoverSelect selectId="multi-example" options={[{ value: "red", label: "Red", icon: <PiCircleFill className="text-red-500" /> }]} placeholder="Select colors" multiple={true} showSelectAll={true} triggerClassName="w-82" />',
+    ],
   },
   Odometer: {
     path: '../react/src/components/Odometer.tsx',
     category: 'components',
     description: 'Animated number display with formatting options',
-    examples: [
-      '<Odometer value={odometerValue} format={FORMAT_2_DECIMALS} className="text-4xl font-bold" />'
-    ]
+    examples: ['<Odometer value={odometerValue} format={FORMAT_2_DECIMALS} className="text-4xl font-bold" />'],
   },
   Skeleton: {
     path: '../react/src/components/Skeleton.tsx',
     category: 'components',
     description: 'Loading placeholder component with animation',
-    examples: [
-      '<Skeleton className="w-32 h-12" />'
-    ]
+    examples: ['<Skeleton className="w-32 h-12" />'],
   },
   ThemeToggle: {
     path: '../react/src/components/ThemeToggle.tsx',
     category: 'components',
     description: 'Dark/light mode toggle switch',
-    examples: [
-      '<ThemeToggle />'
-    ]
+    examples: ['<ThemeToggle />'],
   },
   TokenIcon: {
     path: '../react/src/components/TokenIcon.tsx',
@@ -170,8 +167,8 @@ const COMPONENTS = {
     description: 'Token icon with optional chain indicator',
     examples: [
       '<TokenIcon chainId={1} address="0xdC035D45d973E3EC169d2276DDab16f1e407384F" size={48} />',
-      '<TokenIcon chainId={1} address="0xdC035D45d973E3EC169d2276DDab16f1e407384F" size={48} showChain={true} />'
-    ]
+      '<TokenIcon chainId={1} address="0xdC035D45d973E3EC169d2276DDab16f1e407384F" size={48} showChain={true} />',
+    ],
   },
   Yearn: {
     path: '../react/src/components/Yearn.tsx',
@@ -180,8 +177,8 @@ const COMPONENTS = {
     examples: [
       '<Yearn front="text-primary-50" back="text-primary-600" size={48} />',
       '<Yearn front="text-secondary-200" back="text-secondary-900" size={48} />',
-      '<Yearn front="text-accent-50" back="text-accent-500" size={48} />'
-    ]
+      '<Yearn front="text-accent-50" back="text-accent-500" size={48} />',
+    ],
   },
   Header: {
     path: '../react/src/components/Header.tsx',
@@ -189,8 +186,8 @@ const COMPONENTS = {
     description: 'Header component with sticky positioning and backdrop blur',
     examples: [
       '<Header><div>Logo</div><div>Navigation</div></Header>',
-      '<Header className="relative"><div className="text-lg font-semibold">Example Header</div><div className="flex gap-4"><Button variant="secondary" className="h-6 px-4 py-2 text-base">Nav Item</Button><Button variant="primary" className="h-6 px-4 py-2 text-base">CTA</Button></div></Header>'
-    ]
+      '<Header className="relative"><div className="text-lg font-semibold">Example Header</div><div className="flex gap-4"><Button variant="secondary" className="h-6 px-4 py-2 text-base">Nav Item</Button><Button variant="primary" className="h-6 px-4 py-2 text-base">CTA</Button></div></Header>',
+    ],
   },
   Footer: {
     path: '../react/src/components/Footer.tsx',
@@ -198,9 +195,9 @@ const COMPONENTS = {
     description: 'Footer component with top border and backdrop blur',
     examples: [
       '<Footer><div>Logo</div><div>Copyright</div></Footer>',
-      '<Footer><div>&lt;Footer&gt;</div><div className="text-sm text-content-secondary">© 2024 EG Design System</div></Footer>'
-    ]
-  }
+      '<Footer><div>&lt;Footer&gt;</div><div className="text-sm text-content-secondary">© 2024 EG Design System</div></Footer>',
+    ],
+  },
 } as const
 
 type ComponentName = keyof typeof COMPONENTS
@@ -263,8 +260,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             category: {
               type: 'string',
               description: 'Filter by component category (elements, motion, components)',
-              enum: ['elements', 'motion', 'components']
-            }
+              enum: ['elements', 'motion', 'components'],
+            },
           },
         },
       },
@@ -277,7 +274,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             name: {
               type: 'string',
               description: 'The name of the component',
-              enum: Object.keys(COMPONENTS)
+              enum: Object.keys(COMPONENTS),
             },
           },
           required: ['name'],
@@ -290,9 +287,9 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           type: 'object',
           properties: {
             name: {
-              type: 'string', 
+              type: 'string',
               description: 'The name of the component',
-              enum: Object.keys(COMPONENTS)
+              enum: Object.keys(COMPONENTS),
             },
           },
           required: ['name'],
@@ -321,7 +318,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             name: {
               type: 'string',
               description: 'The name of the component',
-              enum: Object.keys(COMPONENTS)
+              enum: Object.keys(COMPONENTS),
             },
           },
           required: ['name'],
@@ -339,15 +336,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     switch (name) {
       case 'list_components': {
         const category = args?.category as string | undefined
-        const filteredComponents = Object.entries(COMPONENTS).filter(([_, comp]) => 
-          !category || comp.category === category
+        const filteredComponents = Object.entries(COMPONENTS).filter(
+          ([_, comp]) => !category || comp.category === category,
         )
 
         const componentList = filteredComponents.map(([name, comp]) => ({
           name,
           category: comp.category,
           description: comp.description,
-          path: comp.path
+          path: comp.path,
         }))
 
         return {
@@ -400,7 +397,7 @@ ${sourceCode}
           content: [
             {
               type: 'text',
-              text: `# ${componentName} Examples\n\n${component.examples.map(example => `\`\`\`tsx\n${example}\n\`\`\``).join('\n\n')}`,
+              text: `# ${componentName} Examples\n\n${component.examples.map((example) => `\`\`\`tsx\n${example}\n\`\`\``).join('\n\n')}`,
             },
           ],
         }
@@ -408,25 +405,25 @@ ${sourceCode}
 
       case 'search_components': {
         const query = (args?.query as string)?.toLowerCase() || ''
-        
-        const matchingComponents = Object.entries(COMPONENTS).filter(([name, comp]) => 
-          name.toLowerCase().includes(query) ||
-          comp.description.toLowerCase().includes(query) ||
-          comp.category.toLowerCase().includes(query)
+
+        const matchingComponents = Object.entries(COMPONENTS).filter(
+          ([name, comp]) =>
+            name.toLowerCase().includes(query) ||
+            comp.description.toLowerCase().includes(query) ||
+            comp.category.toLowerCase().includes(query),
         )
 
-        const results = matchingComponents.map(([name, comp]) => ({
-          name,
-          category: comp.category,
-          description: comp.description,
-          relevance: (
-            name.toLowerCase().includes(query) ? 10 : 0
-          ) + (
-            comp.description.toLowerCase().includes(query) ? 5 : 0
-          ) + (
-            comp.category.toLowerCase().includes(query) ? 3 : 0
-          )
-        })).sort((a, b) => b.relevance - a.relevance)
+        const results = matchingComponents
+          .map(([name, comp]) => ({
+            name,
+            category: comp.category,
+            description: comp.description,
+            relevance:
+              (name.toLowerCase().includes(query) ? 10 : 0) +
+              (comp.description.toLowerCase().includes(query) ? 5 : 0) +
+              (comp.category.toLowerCase().includes(query) ? 3 : 0),
+          }))
+          .sort((a, b) => b.relevance - a.relevance)
 
         return {
           content: [
@@ -445,7 +442,7 @@ ${sourceCode}
         }
 
         const component = COMPONENTS[componentName]
-        
+
         // Generate installation instructions
         const instructions = `# Installing ${componentName}
 
@@ -469,7 +466,7 @@ ${sourceCode}
 
 ## Usage Examples
 
-${component.examples.map(example => `\`\`\`tsx\n${example}\n\`\`\``).join('\n\n')}
+${component.examples.map((example) => `\`\`\`tsx\n${example}\n\`\`\``).join('\n\n')}
 
 ## Dependencies
 - Ensure your Tailwind theme includes the EG design tokens
@@ -513,7 +510,7 @@ server.setRequestHandler(ListResourcesRequestSchema, async () => {
       },
       {
         uri: 'eg://theme-tokens',
-        name: 'Design Tokens & CSS Theme', 
+        name: 'Design Tokens & CSS Theme',
         description: 'CSS custom properties, color palette, typography, and spacing tokens',
         mimeType: 'text/css',
       },
@@ -562,9 +559,9 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
       case 'eg://component-registry': {
         const registry = Object.entries(COMPONENTS).map(([name, comp]) => ({
           name,
-          ...comp
+          ...comp,
         }))
-        
+
         return {
           contents: [
             {

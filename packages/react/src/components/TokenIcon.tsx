@@ -30,7 +30,10 @@ export default function TokenIcon(props: Props) {
         <ChainIcon
           chainId={chainId}
           size={Math.floor((size ?? 16) / 2.5)}
-          className={cn('outline-3 outline-secondary-950 rounded-full absolute z-10 bottom-0 right-0', bgClassName)}
+          className={cn(
+            'outline-3 outline-[var(--background)] rounded-full absolute z-10 bottom-0 right-0',
+            bgClassName,
+          )}
         />
       )}
     </div>

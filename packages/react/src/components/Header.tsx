@@ -1,9 +1,9 @@
-import { type HTMLAttributes, forwardRef } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cn } from '../lib/cn'
 
 export type HeaderProps = HTMLAttributes<HTMLElement> & {
   className?: string
-} 
+}
 
 function headerClassName(props: HeaderProps) {
   const { className } = props
@@ -16,19 +16,13 @@ function headerClassName(props: HeaderProps) {
   `)
 }
 
-const Header = forwardRef<HTMLElement, HeaderProps>(
-  ({ className, children, ...props }, ref) => {
-    return (
-      <header
-        ref={ref}
-        className={headerClassName({ className })}
-        {...props}
-      >
-        {children}
-      </header>
-    )
-  }
-)
+const Header = forwardRef<HTMLElement, HeaderProps>(({ className, children, ...props }, ref) => {
+  return (
+    <header ref={ref} className={headerClassName({ className })} {...props}>
+      {children}
+    </header>
+  )
+})
 
 Header.displayName = 'Header'
 

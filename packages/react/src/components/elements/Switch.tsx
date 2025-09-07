@@ -16,7 +16,11 @@ const Switch = ({
 }) => (
   <div className={cn('flex items-center gap-3', className)}>
     {label && (
-      <label data-disabled={disabled} className="select-none cursor-pointer data-[disabled=true]:cursor-default" htmlFor={label}>
+      <label
+        data-disabled={disabled}
+        className="select-none cursor-pointer data-[disabled=true]:cursor-default"
+        htmlFor={label}
+      >
         {label}
       </label>
     )}
@@ -28,7 +32,7 @@ const Switch = ({
         'bg-secondary-300 data-[state=checked]:bg-primary-500',
         'dark:bg-secondary-700 dark:data-[state=checked]:bg-primary-600',
         'outline-none ring-2 ring-transparent focus-visible:ring-primary-400',
-        'data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-default'
+        'data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-default',
       )}
       checked={checked}
       onCheckedChange={onChange}
