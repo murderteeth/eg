@@ -5,20 +5,28 @@ export const InputClassName = cn(`
 relative px-4 py-3 
 font-mono text-lg
 
-text-content-primary bg-surface-elevated border border-surface-border
-placeholder:text-secondary-500/60
+/* Using design system tokens */
+text-[var(--color-input-text)] 
+bg-[var(--color-input-bg)] 
+border border-[var(--color-input-border)]
+placeholder:text-[var(--color-input-placeholder)]/60
 
-hover:bg-surface-overlay hover:border-interactive-primary-border
+hover:bg-[var(--color-input-bg-hover)] 
+hover:border-[var(--color-input-border-hover)]
 
-focus:text-content-primary
-focus:border-interactive-primary-border 
-focus:bg-surface-overlay
-focus:placeholder:text-secondary-600
+focus:text-[var(--color-input-text-focus)]
+focus:border-[var(--color-input-border-focus)] 
+focus:bg-[var(--color-input-bg-focus)]
+focus:placeholder:text-[var(--color-input-placeholder-focus)]
 
-data-[disabled=true]:border-surface-border/40
-data-[disabled=true]:text-secondary-400 
-data-[disabled=true]:bg-surface-base/40
-data-[disabled=true]:placeholder:text-secondary-500/40
+active:bg-[var(--color-input-bg-active)] 
+active:border-[var(--color-input-border-active)]
+
+/* Disabled state */
+data-[disabled=true]:bg-[var(--color-input-bg-disabled)]/40
+data-[disabled=true]:border-[var(--color-input-border-disabled)]/40
+data-[disabled=true]:text-[var(--color-input-text-disabled)]
+data-[disabled=true]:placeholder:text-[var(--color-input-placeholder)]/40
 
 truncate
 outline-none focus:ring-0 focus:outline-none

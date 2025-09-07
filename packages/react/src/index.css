@@ -99,6 +99,21 @@
   --color-content-primary: var(--color-secondary-700);
   --color-content-secondary: var(--color-secondary-500);
   --color-content-inverse: var(--color-secondary-50);
+  
+  /* Input control tokens */
+  --color-input-bg: var(--color-surface-elevated);
+  --color-input-bg-hover: var(--color-surface-overlay);
+  --color-input-bg-focus: var(--color-surface-overlay);
+  --color-input-bg-disabled: var(--color-surface-base);
+  --color-input-border: var(--color-surface-border);
+  --color-input-border-hover: var(--color-interactive-primary-border);
+  --color-input-border-focus: var(--color-interactive-primary-border);
+  --color-input-border-disabled: var(--color-surface-border);
+  --color-input-text: var(--color-content-primary);
+  --color-input-text-focus: var(--color-content-primary);
+  --color-input-text-disabled: var(--color-secondary-400);
+  --color-input-placeholder: var(--color-secondary-500);
+  --color-input-placeholder-focus: var(--color-secondary-600);
 
   --drop-shadow-2: 2px 2px 4px rgb(0 0 0 / 0.15);
   --text-shadow-2: 2px 2px 4px rgb(0 0 0 / 0.15);
@@ -159,6 +174,21 @@
     --color-interactive-disabled-text: var(--color-secondary-400);
     --color-interactive-disabled-border: var(--color-secondary-300);
     
+    /* Input control tokens - light mode */
+    --color-input-bg: var(--color-surface-elevated);
+    --color-input-bg-hover: var(--color-surface-overlay);
+    --color-input-bg-focus: var(--color-secondary-100);
+    --color-input-bg-disabled: var(--color-surface-base);
+    --color-input-border: var(--color-surface-border);
+    --color-input-border-hover: var(--color-interactive-primary-border);
+    --color-input-border-focus: var(--color-interactive-primary-border);
+    --color-input-border-disabled: var(--color-surface-border);
+    --color-input-text: var(--color-content-primary);
+    --color-input-text-focus: var(--color-content-primary);
+    --color-input-text-disabled: var(--color-secondary-400);
+    --color-input-placeholder: var(--color-secondary-500);
+    --color-input-placeholder-focus: var(--color-secondary-600);
+    
     scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
     color-scheme: light;
   }
@@ -190,6 +220,23 @@
     --color-interactive-disabled: var(--color-secondary-900);
     --color-interactive-disabled-text: var(--color-secondary-700);
     --color-interactive-disabled-border: var(--color-secondary-800);
+    
+    /* Input control tokens - dark mode */
+    --color-input-bg: var(--color-secondary-800);
+    --color-input-bg-hover: var(--color-secondary-700);
+    --color-input-bg-focus: var(--color-secondary-300);
+    --color-input-bg-active: var(--color-secondary-200);
+    --color-input-bg-disabled: var(--color-secondary-900);
+    --color-input-border: var(--color-secondary-600);
+    --color-input-border-hover: var(--color-secondary-500);
+    --color-input-border-focus: var(--color-primary-400);
+    --color-input-border-active: var(--color-primary-300);
+    --color-input-border-disabled: var(--color-surface-border);
+    --color-input-text: var(--color-secondary-200);
+    --color-input-text-focus: var(--color-primary-950);
+    --color-input-text-disabled: var(--color-secondary-400);
+    --color-input-placeholder: var(--color-secondary-500);
+    --color-input-placeholder-focus: var(--color-secondary-400);
     
     scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
     color-scheme: dark;
@@ -223,6 +270,23 @@
       --color-interactive-disabled: var(--color-secondary-900);
       --color-interactive-disabled-text: var(--color-secondary-700);
       --color-interactive-disabled-border: var(--color-secondary-800);
+      
+      /* Input control tokens - auto dark mode */
+      --color-input-bg: var(--color-secondary-800);
+      --color-input-bg-hover: var(--color-secondary-700);
+      --color-input-bg-focus: var(--color-secondary-300);
+      --color-input-bg-active: var(--color-secondary-200);
+      --color-input-bg-disabled: var(--color-secondary-900);
+      --color-input-border: var(--color-secondary-600);
+      --color-input-border-hover: var(--color-secondary-500);
+      --color-input-border-focus: var(--color-primary-400);
+      --color-input-border-active: var(--color-primary-300);
+      --color-input-border-disabled: var(--color-surface-border);
+      --color-input-text: var(--color-secondary-200);
+      --color-input-text-focus: var(--color-primary-950);
+      --color-input-text-disabled: var(--color-secondary-400);
+      --color-input-placeholder: var(--color-secondary-500);
+      --color-input-placeholder-focus: var(--color-secondary-400);
       
       scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
       color-scheme: dark;
@@ -258,6 +322,21 @@
       --color-interactive-disabled-text: var(--color-secondary-400);
       --color-interactive-disabled-border: var(--color-secondary-300);
       
+      /* Input control tokens - auto light mode */
+      --color-input-bg: var(--color-surface-elevated);
+      --color-input-bg-hover: var(--color-surface-overlay);
+      --color-input-bg-focus: var(--color-surface-overlay);
+      --color-input-bg-disabled: var(--color-surface-base);
+      --color-input-border: var(--color-surface-border);
+      --color-input-border-hover: var(--color-interactive-primary-border);
+      --color-input-border-focus: var(--color-interactive-primary-border);
+      --color-input-border-disabled: var(--color-surface-border);
+      --color-input-text: var(--color-content-primary);
+      --color-input-text-focus: var(--color-content-primary);
+      --color-input-text-disabled: var(--color-secondary-400);
+      --color-input-placeholder: var(--color-secondary-500);
+      --color-input-placeholder-focus: var(--color-secondary-600);
+      
       scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
       color-scheme: light;
     }
@@ -288,4 +367,12 @@ body {
   background: linear-gradient(-90deg, #374151 12%, #4b5563 32%, #6b7280 68%, #374151 90%);
   background-size: 200% 100%;
   animation: skeleton 1.75s infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .animate-skeleton {
+    background: linear-gradient(-90deg, #374151 12%, #4b5563 32%, #6b7280 68%, #374151 90%);
+    background-size: 200% 100%;
+    animation: skeleton 1.75s infinite;
+  }
 }
