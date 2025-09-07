@@ -6,6 +6,7 @@ import { ChainSelect } from './components/ChainSelect'
 import Button from './components/elements/Button'
 import Card from './components/elements/Card'
 import Input from './components/elements/Input'
+import ListItem from './components/elements/ListItem'
 import Switch from './components/elements/Switch'
 import Textarea from './components/elements/Textarea'
 import Footer from './components/Footer'
@@ -214,6 +215,13 @@ function App() {
           <div className="text-right">{'<Card>'}</div>
           <div>
             <Card className="max-w-md">This is a card component with some example content</Card>
+          </div>
+
+          <div className="text-right">{'<ListItem>'}</div>
+          <div className="flex flex-col gap-3 max-w-lg">
+            <ListItem variant="xl">Extra Large List Item</ListItem>
+            <ListItem variant="lg">Large List Item</ListItem>
+            <ListItem variant="base">Base List Item</ListItem>
           </div>
 
           <div className="text-right">{'<Odometer>'}</div>
