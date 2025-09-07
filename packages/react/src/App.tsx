@@ -158,7 +158,7 @@ function App() {
                 <div className="font-mono text-base">0x1234...abcd</div>
                 <div className="font-mono text-sm">Block: 18,547,291</div>
                 <div className="font-mono text-xs">Gas: 21000 gwei</div>
-                <div className="font-mono text-sm bg-secondary-100 dark:bg-secondary-800 p-2 rounded">
+                <div className="font-mono text-sm bg-[var(--color-input-bg)] p-2 rounded-primary">
                   function transfer(address to, uint256 amount)
                 </div>
               </div>
@@ -274,7 +274,7 @@ function App() {
         <div className="text-right">{'<Switch>'}</div>
         <div className="flex gap-8">
           <Switch label="Toggle me" checked={switchValue} onChange={setSwitchValue} />
-          <Switch label="Always on" checked={true} />
+          <Switch label="Always on" checked={true} disabled={true} />
           <Switch label="Disabled" checked={false} disabled={true} />
         </div>
 
