@@ -227,7 +227,7 @@ function readComponent(componentName: ComponentName): string {
 // Helper function to read design system docs
 function readDesignSystemDocs(): string {
   try {
-    const filePath = join(__dirname, '../react/DESIGNSYSTEM.md')
+    const filePath = join(__dirname, '../../../DESIGNSYSTEM.md')
     return readFileSync(filePath, 'utf-8')
   } catch (error) {
     throw new Error(`Failed to read design system documentation: ${error}`)

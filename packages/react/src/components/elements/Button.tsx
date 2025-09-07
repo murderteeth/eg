@@ -13,7 +13,7 @@ function buttonClassName(props: ButtonProps) {
   const busy = variant === 'busy'
 
   return cn(`
-    relative h-8 px-8 py-5 flex items-center justify-center
+    relative h-[42px] px-8 flex items-center justify-center
     text-2xl tracking-wide
     drop-shadow-4 drop-shadow-black
     border cursor-pointer rounded-primary whitespace-nowrap
@@ -56,7 +56,7 @@ function buttonClassName(props: ButtonProps) {
     
     data-[variant=busy]:pointer-events-none
     
-    ${busy && 'pointer-events-none'}
+    ${busy && 'pointer-events-none animate-skeleton'}
     ${className}`)
 }
 

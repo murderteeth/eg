@@ -278,8 +278,8 @@ Modern button styling with semantic color variants:
 /* Base Button Structure */
 .button-base {
   position: relative;
-  height: 32px;
-  padding: 20px 32px;
+  height: 42px;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -402,8 +402,8 @@ Interactive overlay components:
 /* HoverCard Trigger */
 .hover-card-trigger {
   position: relative;
-  height: 32px;
-  padding: 20px 32px;
+  height: 42px;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -568,6 +568,54 @@ Modern form controls with consistent styling:
 }
 ```
 
+### ListItem Component
+Interactive list items with size variants:
+
+```css
+.list-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: var(--radius-primary);
+  cursor: pointer;
+  outline: none;
+  
+  /* Using secondary interactive colors */
+  color: var(--color-interactive-secondary-text);
+  background: var(--color-listitem-bg);
+  border: 1px solid var(--color-interactive-secondary-border);
+  
+  /* Size variants */
+  &[data-variant="xl"] {
+    min-height: 96px; /* min-h-24 */
+    font-size: 20px;  /* text-xl */
+  }
+  
+  &[data-variant="lg"] {
+    min-height: 80px; /* min-h-20 */
+    font-size: 18px;  /* text-lg */
+  }
+  
+  &[data-variant="base"] {
+    min-height: 64px; /* min-h-16 */
+    font-size: 16px;  /* text-base */
+  }
+}
+
+.list-item:hover {
+  background: var(--color-listitem-bg-hover);
+}
+
+.list-item:focus {
+  background: var(--color-listitem-bg-focus);
+}
+
+.list-item:active {
+  background: var(--color-listitem-bg-active);
+}
+```
+
 ### Switch Component
 Toggle switches with smooth animations:
 
@@ -671,6 +719,28 @@ Automatic switching based on system preference with manual override:
   --background: var(--color-secondary-900);
   --card-bg: var(--color-secondary-900);
   --card-border: var(--color-secondary-700);
+  
+  /* Dark mode interactive colors */
+  --color-interactive-primary: var(--color-primary-600);
+  --color-interactive-primary-text: var(--color-primary-50);
+  
+  --color-interactive-secondary: var(--color-secondary-900);
+  --color-interactive-secondary-hover: var(--color-secondary-800);
+  --color-interactive-secondary-active: var(--color-secondary-700);
+  --color-interactive-secondary-text: var(--color-secondary-200);
+  --color-interactive-secondary-border: var(--color-secondary-700);
+  
+  --color-interactive-disabled: var(--color-secondary-900);
+  --color-interactive-disabled-text: var(--color-secondary-700);
+  --color-interactive-disabled-border: var(--color-secondary-800);
+  
+  --color-surface-base: var(--color-secondary-900);
+  --color-surface-elevated: var(--color-secondary-900);
+  --color-surface-overlay: var(--color-secondary-800);
+  --color-surface-border: var(--color-secondary-700);
+  
+  --color-content-primary: var(--color-secondary-50);
+  --color-content-inverse: var(--color-secondary-50);
 }
 
 /* System Preference Detection */
@@ -718,12 +788,119 @@ Smooth loading animations for content placeholders:
 ### Motion Components
 Frame-based animations using Framer Motion:
 
-- **FlyInFromLeft**: Elements slide in from the left edge
-- **FlyInFromTop**: Elements drop in from above  
-- **FlyInFromBottom**: Elements rise in from below
-- **ScaleIn**: Elements scale up from center point
+- **FlyInFromLeft**: Elements slide in from the left edge with 100px offset
+- **FlyInFromRight**: Elements slide in from the right edge with 100px offset
+- **FlyInFromTop**: Elements drop in from above with 50px offset
+- **FlyInFromBottom**: Elements rise in from below with 50px offset
+- **ScaleIn**: Elements scale up from 0 to 1 from center point
 
-All motion components accept a `_key` prop for triggering re-animations.
+All motion components:
+- Accept a `_key` prop for triggering re-animations when the key changes
+- Use spring animations with bounce for natural movement
+- Have a duration of approximately 0.5-0.8 seconds
+- Support all standard div props and className for customization
+
+Example usage:
+```tsx
+// Re-trigger animation when state changes
+<FlyInFromLeft _key={animationKey.toString()}>
+  <Card>Animated content</Card>
+</FlyInFromLeft>
+```
+
+## Additional Components
+
+### ImgOrBg Component
+Progressive image loading component with placeholder:
+- Shows a customizable placeholder div while the image loads
+- Default background uses `--card-border` color for loading state
+- Supports background styling and child elements in placeholder
+- Automatically transitions to image once loaded
+- Maintains proper dimensions during loading state
+
+### ChainIcon Component  
+Displays blockchain network icons:
+- Automatic icon selection based on chain ID
+- Customizable size (default 32px)
+- Fallback to generic icon for unknown chains
+
+### TokenIcon Component
+Token icons with optional chain indicator:
+- Fetches token imagery from external sources
+- Optional chain icon overlay in corner
+- Automatic fallback to placeholder
+- Size customization support
+
+### ChainSelect Component
+Multi-select dropdown for blockchain networks:
+- Search/filter functionality
+- Multiple selection support
+- Chain icons with names
+- Responsive dropdown positioning
+
+### Odometer Component
+Animated number display using @number-flow/react:
+- Smooth number transitions
+- Formatting options (decimals, commas)
+- Customizable animation duration
+- Monospace font for consistent width
+
+### Yearn Component
+Yearn protocol branding component:
+- Customizable front and back colors
+- Size variants
+- SVG-based rendering
+
+### Header Component
+Sticky header with backdrop blur:
+- Fixed positioning option
+- Backdrop blur effect
+- Flexible content layout
+- Consistent padding and borders
+
+### Footer Component
+Footer with top border and backdrop:
+- Sticky bottom positioning option
+- Top border styling
+- Backdrop blur support
+- Flexible content areas
+
+## CSS Architecture
+
+### Tailwind v4 @theme Directive
+The design system uses Tailwind CSS v4's `@theme` directive to define custom properties:
+
+```css
+@theme {
+  /* All custom properties defined here become available as Tailwind utilities */
+  --font-mono: 'Google Sans Code', monospace;
+  --font-sans: 'Inter', sans-serif;
+  /* Color definitions... */
+}
+```
+
+This approach:
+- Integrates custom properties directly into Tailwind's theme system
+- Enables use of custom values in utility classes
+- Maintains consistency between CSS and Tailwind utilities
+- Supports dynamic theme switching via CSS custom properties
+
+### Component Styling Patterns
+
+#### Data Attributes for Variants
+Components use data attributes for variant-based styling:
+
+```css
+/* Button component example */
+.button[data-variant="primary"] { /* primary styles */ }
+.button[data-variant="secondary"] { /* secondary styles */ }
+```
+
+Benefits:
+- Clear variant identification in DOM
+- Easy CSS targeting without complex selectors  
+- Better debugging with visible attributes
+- Supports Tailwind's data attribute utilities
 
 ## Utility Classes
 
@@ -757,8 +934,10 @@ All motion components accept a `_key` prop for triggering re-animations.
 ### Buttons
 - **Semantic variants**: Primary, Secondary, Accent, Error, Busy, Disabled
 - **Interactive feedback**: Hover, active, and focus states
-- **Consistent sizing**: Standard height (32px) with flexible width
+- **Consistent sizing**: Fixed height of 42px (h-[42px]) with 32px horizontal padding (px-8)
+- **Loading animation**: Busy variant includes skeleton animation
 - **Accessibility**: Proper focus indicators and disabled states
+- **Data attributes**: Uses `data-variant` for styling hooks
 
 ### Form Elements
 - **Monospace inputs**: Use monospace font for technical data entry
@@ -796,9 +975,14 @@ All motion components accept a `_key` prop for triggering re-animations.
 ```json
 {
   "react": "^19.1.1",
+  "react-dom": "^19.1.1",
   "framer-motion": "^12.23.12",
   "@radix-ui/react-switch": "^1.2.6",
+  "@number-flow/react": "^0.5.10",
+  "clsx": "^2.1.1",
+  "tailwind-merge": "^3.3.1",
   "tailwindcss": "^4.1.12",
+  "viem": "^2.35.1",
   "zustand": "^5.0.8"
 }
 ```

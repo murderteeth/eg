@@ -37,12 +37,13 @@ function listItemClassName(props: ListItemProps) {
 }
 
 const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
-  ({ children, className, variant = 'base', ...props }, ref) => {
+  ({ children, className, variant = 'base', tabIndex = 0, ...props }, ref) => {
     return (
       <div
         ref={ref}
         data-variant={variant}
         className={listItemClassName({ className, variant })}
+        tabIndex={tabIndex}
         {...props}
       >
         {children}
