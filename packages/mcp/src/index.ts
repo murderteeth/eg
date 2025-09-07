@@ -49,6 +49,17 @@ const COMPONENTS = {
       '<Input placeholder="Disabled input" disabled className="w-96" />',
     ],
   },
+  ListItem: {
+    path: '../react/src/components/elements/ListItem.tsx',
+    category: 'elements',
+    description: 'List item component with size variants and responsive backgrounds',
+    examples: [
+      '<ListItem variant="xl">Extra Large List Item</ListItem>',
+      '<ListItem variant="lg">Large List Item</ListItem>',
+      '<ListItem variant="base">Base List Item</ListItem>',
+      '<ListItem className="w-96">Custom styled list item</ListItem>',
+    ],
+  },
   Switch: {
     path: '../react/src/components/elements/Switch.tsx',
     category: 'elements',

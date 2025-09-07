@@ -115,6 +115,13 @@
   --color-input-placeholder: var(--color-secondary-500);
   --color-input-placeholder-focus: var(--color-secondary-600);
 
+  /* ListItem control tokens */
+  --color-listitem-bg: var(--color-interactive-secondary);
+  --color-listitem-bg-hover: var(--color-interactive-secondary-hover);
+  --color-listitem-bg-focus: var(--color-interactive-secondary-hover);
+  --color-listitem-bg-active: var(--color-interactive-secondary-active);
+  --color-listitem-bg-disabled: var(--color-interactive-disabled);
+
   --drop-shadow-2: 2px 2px 4px rgb(0 0 0 / 0.15);
   --text-shadow-2: 2px 2px 4px rgb(0 0 0 / 0.15);
   --shadow-inner-2: inset 2px 2px 4px rgb(0 0 0 / 0.15);
@@ -189,6 +196,13 @@
     --color-input-placeholder: var(--color-secondary-500);
     --color-input-placeholder-focus: var(--color-secondary-600);
     
+    /* ListItem control tokens - light mode */
+    --color-listitem-bg: var(--color-interactive-secondary);
+    --color-listitem-bg-hover: var(--color-interactive-secondary-hover);
+    --color-listitem-bg-focus: var(--color-interactive-secondary-hover);
+    --color-listitem-bg-active: var(--color-interactive-secondary-active);
+    --color-listitem-bg-disabled: var(--color-interactive-disabled);
+    
     scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
     color-scheme: light;
   }
@@ -237,6 +251,13 @@
     --color-input-text-disabled: var(--color-secondary-400);
     --color-input-placeholder: var(--color-secondary-500);
     --color-input-placeholder-focus: var(--color-secondary-400);
+    
+    /* ListItem control tokens - dark mode */
+    --color-listitem-bg: var(--color-interactive-secondary);
+    --color-listitem-bg-hover: var(--color-interactive-secondary-hover);
+    --color-listitem-bg-focus: var(--color-interactive-secondary-hover);
+    --color-listitem-bg-active: var(--color-interactive-secondary-active);
+    --color-listitem-bg-disabled: var(--color-interactive-disabled);
     
     scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
     color-scheme: dark;
@@ -288,6 +309,13 @@
       --color-input-placeholder: var(--color-secondary-500);
       --color-input-placeholder-focus: var(--color-secondary-400);
       
+      /* ListItem control tokens - auto dark mode */
+      --color-listitem-bg: var(--color-interactive-secondary);
+      --color-listitem-bg-hover: var(--color-interactive-secondary-hover);
+      --color-listitem-bg-focus: var(--color-interactive-secondary-hover);
+      --color-listitem-bg-active: var(--color-interactive-secondary-active);
+      --color-listitem-bg-disabled: var(--color-interactive-disabled);
+      
       scrollbar-color: var(--color-secondary-400) var(--color-secondary-700);
       color-scheme: dark;
     }
@@ -336,6 +364,13 @@
       --color-input-text-disabled: var(--color-secondary-400);
       --color-input-placeholder: var(--color-secondary-500);
       --color-input-placeholder-focus: var(--color-secondary-600);
+      
+      /* ListItem control tokens - auto light mode */
+      --color-listitem-bg: var(--color-interactive-secondary);
+      --color-listitem-bg-hover: var(--color-interactive-secondary-hover);
+      --color-listitem-bg-focus: var(--color-interactive-secondary-hover);
+      --color-listitem-bg-active: var(--color-interactive-secondary-active);
+      --color-listitem-bg-disabled: var(--color-interactive-disabled);
       
       scrollbar-color: var(--color-secondary-50) var(--color-secondary-600);
       color-scheme: light;
