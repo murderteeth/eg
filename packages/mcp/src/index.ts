@@ -20,7 +20,7 @@ import {
 const COMPONENTS = {
   // Elements
   Button: {
-    path: '../react/src/components/elements/Button.tsx',
+    path: '../../react/src/components/elements/Button.tsx',
     category: 'elements',
     description: 'Button component with multiple variants and states',
     examples: [
@@ -33,13 +33,13 @@ const COMPONENTS = {
     ],
   },
   Card: {
-    path: '../react/src/components/elements/Card.tsx',
+    path: '../../react/src/components/elements/Card.tsx',
     category: 'elements',
     description: 'Card container with consistent styling and shadows',
     examples: ['<Card className="max-w-md">This is a card component with some example content</Card>'],
   },
   Input: {
-    path: '../react/src/components/elements/Input.tsx',
+    path: '../../react/src/components/elements/Input.tsx',
     category: 'elements',
     description: 'Input field with various states and theming',
     examples: [
@@ -50,7 +50,7 @@ const COMPONENTS = {
     ],
   },
   ListItem: {
-    path: '../react/src/components/elements/ListItem.tsx',
+    path: '../../react/src/components/elements/ListItem.tsx',
     category: 'elements',
     description: 'List item component with size variants and responsive backgrounds',
     examples: [
@@ -61,7 +61,7 @@ const COMPONENTS = {
     ],
   },
   Switch: {
-    path: '../react/src/components/elements/Switch.tsx',
+    path: '../../react/src/components/elements/Switch.tsx',
     category: 'elements',
     description: 'Toggle switch component with labels',
     examples: [
@@ -71,7 +71,7 @@ const COMPONENTS = {
     ],
   },
   Textarea: {
-    path: '../react/src/components/elements/Textarea.tsx',
+    path: '../../react/src/components/elements/Textarea.tsx',
     category: 'elements',
     description: 'Multi-line text input with theming support',
     examples: [
@@ -84,7 +84,7 @@ const COMPONENTS = {
 
   // Motion components
   FlyInFromLeft: {
-    path: '../react/src/components/motion/FlyInFromLeft.tsx',
+    path: '../../react/src/components/motion/FlyInFromLeft.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the left',
     examples: [
@@ -92,7 +92,7 @@ const COMPONENTS = {
     ],
   },
   FlyInFromRight: {
-    path: '../react/src/components/motion/FlyInFromRight.tsx',
+    path: '../../react/src/components/motion/FlyInFromRight.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the right',
     examples: [
@@ -100,7 +100,7 @@ const COMPONENTS = {
     ],
   },
   FlyInFromTop: {
-    path: '../react/src/components/motion/FlyInFromTop.tsx',
+    path: '../../react/src/components/motion/FlyInFromTop.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the top',
     examples: [
@@ -108,7 +108,7 @@ const COMPONENTS = {
     ],
   },
   FlyInFromBottom: {
-    path: '../react/src/components/motion/FlyInFromBottom.tsx',
+    path: '../../react/src/components/motion/FlyInFromBottom.tsx',
     category: 'motion',
     description: 'Animation wrapper that flies content in from the bottom',
     examples: [
@@ -116,7 +116,7 @@ const COMPONENTS = {
     ],
   },
   ScaleIn: {
-    path: '../react/src/components/motion/ScaleIn.tsx',
+    path: '../../react/src/components/motion/ScaleIn.tsx',
     category: 'motion',
     description: 'Animation wrapper that scales content in',
     examples: [
@@ -125,20 +125,29 @@ const COMPONENTS = {
   },
 
   // Complex components
+  ImgOrBg: {
+    path: '../../react/src/components/ImgOrBg.tsx',
+    category: 'components',
+    description: 'Image with background fallback component',
+    examples: [
+      '<ImgOrBg src="/path/to/image.jpg" alt="Example image" width={64} height={64} className="rounded-lg" />',
+      '<ImgOrBg src="/path/to/image.jpg" alt="Example" bgClassName="bg-neutral-200" width={48} height={48} />',
+    ],
+  },
   ChainIcon: {
-    path: '../react/src/components/ChainIcon.tsx',
+    path: '../../react/src/components/ChainIcon.tsx',
     category: 'components',
     description: 'Icon component for blockchain networks',
     examples: ['<ChainIcon chainId={1} size={48} />'],
   },
   ChainSelect: {
-    path: '../react/src/components/ChainSelect/index.tsx',
+    path: '../../react/src/components/ChainSelect/index.tsx',
     category: 'components',
     description: 'Multi-select dropdown for blockchain chains with search',
     examples: ['<ChainSelect />'],
   },
   HoverCard: {
-    path: '../react/src/components/HoverCard/index.tsx',
+    path: '../../react/src/components/HoverCard/index.tsx',
     category: 'components',
     description: 'Hover-triggered card overlay with positioning',
     examples: [
@@ -146,7 +155,7 @@ const COMPONENTS = {
     ],
   },
   HoverSelect: {
-    path: '../react/src/components/HoverSelect/HoverSelect.tsx',
+    path: '../../react/src/components/HoverSelect/HoverSelect.tsx',
     category: 'components',
     description: 'Dropdown select with hover interactions and multi-select support',
     examples: [
@@ -155,25 +164,25 @@ const COMPONENTS = {
     ],
   },
   Odometer: {
-    path: '../react/src/components/Odometer.tsx',
+    path: '../../react/src/components/Odometer.tsx',
     category: 'components',
     description: 'Animated number display with formatting options',
     examples: ['<Odometer value={odometerValue} format={FORMAT_2_DECIMALS} className="text-4xl font-bold" />'],
   },
   Skeleton: {
-    path: '../react/src/components/Skeleton.tsx',
+    path: '../../react/src/components/Skeleton.tsx',
     category: 'components',
     description: 'Loading placeholder component with animation',
     examples: ['<Skeleton className="w-32 h-12" />'],
   },
   ThemeToggle: {
-    path: '../react/src/components/ThemeToggle.tsx',
+    path: '../../react/src/components/ThemeToggle.tsx',
     category: 'components',
     description: 'Dark/light mode toggle switch',
     examples: ['<ThemeToggle />'],
   },
   TokenIcon: {
-    path: '../react/src/components/TokenIcon.tsx',
+    path: '../../react/src/components/TokenIcon.tsx',
     category: 'components',
     description: 'Token icon with optional chain indicator',
     examples: [
@@ -182,7 +191,7 @@ const COMPONENTS = {
     ],
   },
   Yearn: {
-    path: '../react/src/components/Yearn.tsx',
+    path: '../../react/src/components/Yearn.tsx',
     category: 'components',
     description: 'Yearn protocol branding component with customizable colors',
     examples: [
@@ -192,7 +201,7 @@ const COMPONENTS = {
     ],
   },
   Header: {
-    path: '../react/src/components/Header.tsx',
+    path: '../../react/src/components/Header.tsx',
     category: 'components',
     description: 'Header component with sticky positioning and backdrop blur',
     examples: [
@@ -201,7 +210,7 @@ const COMPONENTS = {
     ],
   },
   Footer: {
-    path: '../react/src/components/Footer.tsx',
+    path: '../../react/src/components/Footer.tsx',
     category: 'components',
     description: 'Footer component with top border and backdrop blur',
     examples: [
@@ -227,7 +236,7 @@ function readComponent(componentName: ComponentName): string {
 // Helper function to read design system docs
 function readDesignSystemDocs(): string {
   try {
-    const filePath = join(__dirname, '../../../DESIGNSYSTEM.md')
+    const filePath = join(__dirname, '../../../../DESIGNSYSTEM.md')
     return readFileSync(filePath, 'utf-8')
   } catch (error) {
     throw new Error(`Failed to read design system documentation: ${error}`)
@@ -237,7 +246,7 @@ function readDesignSystemDocs(): string {
 // Helper function to read CSS theme
 function readThemeCSS(): string {
   try {
-    const filePath = join(__dirname, '../react/src/index.css')
+    const filePath = join(__dirname, '../../react/src/index.css')
     return readFileSync(filePath, 'utf-8')
   } catch (error) {
     throw new Error(`Failed to read theme CSS: ${error}`)
