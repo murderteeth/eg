@@ -49,7 +49,7 @@ export default function ThemeToggle() {
   }
 
   return (
-    <Button onClick={cycleTheme} className="p-5" aria-label={`Current theme: ${theme}. Click to change.`}>
+    <Button onClick={cycleTheme} className="px-4" aria-label={`Current theme: ${theme}. Click to change.`}>
       <FlyInFromBottom _key={theme} parentMounted={mounted}>
         {getIcon()}
       </FlyInFromBottom>

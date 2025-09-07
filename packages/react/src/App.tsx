@@ -175,7 +175,7 @@ function App() {
               alt="Invalid content"
               width={48}
               height={48}
-              bgClassName="bg-secondary-200 dark:bg-secondary-800 rounded-full flex items-center justify-center"
+              bgClassName="rounded-full flex items-center justify-center"
             ></ImgOrBg>
           </div>
 

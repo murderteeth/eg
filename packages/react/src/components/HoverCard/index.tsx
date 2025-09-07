@@ -17,7 +17,7 @@ interface HoverCardProps {
 }
 
 const triggerClassName = cn(`
-  relative h-8 px-8 py-5
+  relative h-[42px] px-8
   flex items-center gap-2
   bg-interactive-secondary text-interactive-secondary-text text-2xl
   rounded-primary cursor-pointer

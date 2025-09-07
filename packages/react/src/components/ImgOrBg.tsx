@@ -15,7 +15,7 @@ export default function ImgOrBg({ className, bgClassName, children, ...imageProp
       <div
         title={imageProps.alt}
         style={{ width: imageProps.width, height: imageProps.height }}
-        className={cn('absolute z-0 inset-0', bgClassName)}
+        className={cn('absolute z-0 inset-0 bg-[var(--card-border)]', bgClassName)}
       >
         {children}
       </div>
