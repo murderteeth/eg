@@ -4,12 +4,24 @@ A focused, technical design system.
 
 ## Core Principles
 
-- **Dual typography system** with Sans for UI and Monospace for technical content
-- **Subtle depth** through soft drop shadows with transparency
-- **Three-color system** with Primary (blue), Secondary (neutral), and Accent (pink)
-- **Clean modern styling** with rounded corners
-- **Dark mode native** with automatic switching based on system preference
-- **Consistent interactive states** across components
+  - **Dual typography system** with Sans for UI and Monospace for technical content
+  - **Subtle depth** through soft drop shadows with transparency
+  - **Three-color system** with Primary (blue), Secondary (neutral), and Accent (pink)
+  - **Clean modern styling** with rounded corners
+  - **Dark mode native** with automatic switching based on system preference
+  - **Consistent interactive states** across components
+  - **Design token architecture** with CSS custom properties for systematic theming and easy customization
+  - **Atomic design patterns** with clear separation between elements, motion components, and complex compositions
+  - **TypeScript-first development** with proper generics, forwardRef patterns, and comprehensive type safety
+  - **Composable component architecture** using compound components and render props for maximum flexibility
+  - **Tailwind CSS with semantic tokens** combining utility classes with design system variables for maintainable styling
+  - **Built-in accessibility** with proper ARIA attributes, semantic HTML, and keyboard navigation support
+  - **Performance-optimized animations** using Framer Motion with proper lifecycle management and memoization
+  - **Consistent component APIs** with predictable prop patterns across all components for better developer experience
+  - **Reusable custom hooks** separating business logic from presentation for better testing and composition
+  - **State management patterns** using Zustand for global state and well-structured local state abstractions
+  - **Data-attribute styling** for variant management enabling clean, conflict-free CSS without runtime overhead
+  - **Zero-dependency core components** with optional enhancements for icons and animations
 
 ## Colors
 
